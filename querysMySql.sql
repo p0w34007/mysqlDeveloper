@@ -1,4 +1,3 @@
-
 /* query para trazer o rendimento dos operadores/atendentes em cotaÃ§Ãµes */
 select        u.id,concat('Atendente ',u.nome) as Atendente,
               (select count(ct.cotacao_id) from cotacao as ct where ct.data_cadastro > '2013-01-01' and ct.usuario=u.id and status=1 ) as cotacaoAberta,
@@ -13,6 +12,10 @@ where         c.data_cadastro > '2013-01-01'
 and           u.id <> ''
 group by      u.id
 order by      u.nome;
+
+ALTER TABLE fornecedor_estoque_historico ADD frete VARCHAR( 3 ) COLLATE utf8_general_ci NULL AFTER custo;
+ALTER TABLE fornecedor_estoque_historico ADD frete_valor DECIMAL( 10,2 ) COLLATE utf8_general_ci NULL AFTER frete;
+ALTER TABLE fornecedor_estoque_historico ADD frete_tempo INT( 3 ) COLLATE utf8_general_ci NULL AFTER frete_valor;
 
 
 
