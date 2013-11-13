@@ -1,0 +1,16 @@
+                '12918', 
+                '0001'
+                item_id, 
+                pu, 
+                partnumber, 
+                marca_id, 
+                qtde_item_cotacao, 
+                disponibilidade, 
+                preco, 
+                ipi, 
+                moeda_preco, 
+                obs, 
+                timestamp, 
+                fornecedor_id, 
+                nome_fornecedor, 
+                empresa
