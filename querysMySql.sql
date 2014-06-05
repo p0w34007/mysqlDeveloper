@@ -17,8 +17,10 @@ ALTER TABLE fornecedor_estoque_historico ADD frete VARCHAR( 3 ) COLLATE utf8_gen
 ALTER TABLE fornecedor_estoque_historico ADD frete_valor DECIMAL( 10,2 ) COLLATE utf8_general_ci NULL AFTER frete;
 ALTER TABLE fornecedor_estoque_historico ADD frete_tempo INT( 3 ) COLLATE utf8_general_ci NULL AFTER frete_valor;
 
-
-
+/* select que traz todas as tabelas deum determinado schema mysql */
+SELECT DISTINCT TABLE_NAME 
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE COLUMN_NAME like '%origem%';
 
 alter table oferta add partnumber_unico_compacto varchar(255) after partnumber_unico;
 select * from oferta;
