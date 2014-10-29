@@ -79,8 +79,21 @@ CREATE INDEX IX_ProductVendor_VendorID
     ON Purchasing.ProductVendor (VendorID);
 
 
-
-
-
+/* query com limit 1000 */
+SELECT TOP 1000 [OrderID]
+      ,[CustomerID]
+      ,[PartnerOrderID]
+      ,[SubPartnerID]
+      ,[ProductID]
+      ,[OrderDate]
+      ,[DeskTopMailBoxes]
+      ,[SubscriptionLength]
+      ,[ServiceLevel]
+      ,[PaymentType]
+      ,[LanguageCode]
+      ,[ProductName]
+      ,[ProductQTY]
+      ,[McAfeeExpDate]
+  FROM [mobile_com].[dbo].[OrderItem]
 
 #####################################################################################################################
