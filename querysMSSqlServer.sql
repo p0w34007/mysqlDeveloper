@@ -51,7 +51,7 @@ GROUP BY status_id DESC, situacao_id,partnumber_unico,o.marca_id ORDER BY status
 ###########################################D-SaaS####################################################################
 
 /* gera selects de tabelas existentes na base */
-select 'select ''' + name + ''', count(*) from ' + name from sysobject where type 'u' 
+select 'select ''' + name + ''', count(*) from ' + name from sysobject where type = 'u' 
 
 /* stored procedure para renomear estrutura de tabelas */
 sp_rename nome_atual_tabela, nome_novo_tabela
