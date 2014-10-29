@@ -53,6 +53,24 @@ GROUP BY status_id DESC, situacao_id,partnumber_unico,o.marca_id ORDER BY status
 /* gera selects de tabelas existentes na base */
 select 'select ''' + name + ''', count(*) from ' + name from sysobjects where type = 'u' 
 
+exemplos de saida=>
+select 'InteractiveLog', count(*) from InteractiveLog
+select 'Language', count(*) from Language
+select 'OrderItem', count(*) from OrderItem
+select 'Orders', count(*) from Orders
+select 'Products', count(*) from Products
+select 'SMSAtivacao', count(*) from SMSAtivacao
+select 'SMSCustomers', count(*) from SMSCustomers
+select 'SMSRouting', count(*) from SMSRouting
+select 'SubPartners', count(*) from SubPartners
+select 'WebLog', count(*) from WebLog
+select 'NETBR35', count(*) from NETBR35
+select 'NEtBR60', count(*) from NEtBR60
+select 'BusinessMarket', count(*) from BusinessMarket
+select 'Customers', count(*) from Customers
+
+
+
 /* stored procedure para renomear estrutura de tabelas */
 sp_rename nome_atual_tabela, nome_novo_tabela
 
