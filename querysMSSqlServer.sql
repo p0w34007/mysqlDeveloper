@@ -48,3 +48,14 @@ or
 GROUP BY status_id DESC, situacao_id,partnumber_unico,o.marca_id ORDER BY status_id DESC, situacao_id,preco DESC,partnumber_unico,o.marca_id LIMIT 90
 
 
+###########################################D-SaaS####################################################################
+
+select 'select ''' + name + ''', count(*) from ' + name from sysobject where type 'u' 
+
+
+
+
+
+
+
+#####################################################################################################################
