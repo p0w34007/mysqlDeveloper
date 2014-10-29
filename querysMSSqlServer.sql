@@ -74,8 +74,9 @@ select 'Customers', count(*) from Customers
 /* stored procedure para renomear estrutura de tabelas */
 sp_rename nome_atual_tabela, nome_novo_tabela
 
-
-
+/* exemplo de create index */
+CREATE INDEX IX_ProductVendor_VendorID 
+    ON Purchasing.ProductVendor (VendorID);
 
 
 
