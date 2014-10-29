@@ -70,13 +70,8 @@ select 'BusinessMarket', count(*) from BusinessMarket
 select 'Customers', count(*) from Customers
 
 
-
 /* stored procedure para renomear estrutura de tabelas */
 sp_rename nome_atual_tabela, nome_novo_tabela
-
-/* exemplo de create index */
-CREATE INDEX IX_ProductVendor_VendorID 
-    ON Purchasing.ProductVendor (VendorID);
 
 
 /* query com limit 1000 */
@@ -95,5 +90,31 @@ SELECT TOP 1000 [OrderID]
       ,[ProductQTY]
       ,[McAfeeExpDate]
   FROM [mobile_com].[dbo].[OrderItem]
+  
+  
+  /* criacao de indices */
+  /* InteractiveLog */
+CREATE INDEX INX_BusinessMarketID ON mobile_com.dbo.BusinessMarket (BusinessMarketID);
+
+/* Language */
+create index inx_LanguageID on mobile_com.dbo.Language (LanguageID);
+
+/* OrderItem */
+create index inx_OrderID on mobile.dbo.OrderItem (OrderID);
+create index inx_ProductID on mobile.dbo.OrderItem (ProductID);
+create index inx_CustomerID on mobile.dbo.OrderItem (CustomerID);
+
+/* Orders */
+/* Products */
+/* SMSAtivacao */
+/* SMSCustomers */
+/* SMSRouting */
+/* SubPartners */
+/* WebLog */
+/* NETBR35 */
+/* NEtBR60 */
+/* BusinessMarket */
+/* Customers */
+
 
 #####################################################################################################################
