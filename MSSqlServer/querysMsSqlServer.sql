@@ -477,6 +477,10 @@ select
 smsdata,
 smsin
 from mobile_com.dbo.InteractiveLog;
+
+select count(*) from mobile_com.dbo.InteractiveLogBK;
+select count(*) from mobile_com.dbo.InteractiveLog;
+
 /* ducplicando a tabela e inserindo o tipo identity  */
 
 
