@@ -24,6 +24,9 @@ create index inx_ProductName on mobile_com.dbo.Products (ProductName);
 
 /* SMSAtivacao */
 select top 10 * from mobile_com.dbo.SMSAtivacao;
+sp_rename nome_atual_tabela, nome_novo_tabela
+
+[CID] [decimal](18,0) identity,
 
 /* SMSCustomers */
 /* SMSRouting */
