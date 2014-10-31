@@ -462,5 +462,25 @@ GO
 SET ANSI_PADDING OFF
 GO
 
+/* ducplicando a tabela e inserindo o tipo identity  */
+sp_rename mobile_com.dbo.InteractiveLog, mobile_com.dbo.InteractiveLogBK;
+
+CREATE TABLE [mobile_com].[dbo].[InteractiveLog](
+	[smsid] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[smsdata] [datetime] NULL,
+	[smsin] [varchar](500) NULL
+);
+
+insert into mobile_com.dbo.InteractiveLog
+(smsdata,smsin)
+select 
+smsdata,
+smsin
+from mobile_com.dbo.InteractiveLog;
+/* ducplicando a tabela e inserindo o tipo identity  */
+
+
+
+
 
 #####################################################################################################################
