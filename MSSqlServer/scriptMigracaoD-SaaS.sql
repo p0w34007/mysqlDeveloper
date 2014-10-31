@@ -1,37 +1,35 @@
-/* criacao de indices - mobile_com.dbo */
+/* ducplicando a tabela e inserindo o tipo identity  */
+sp_rename SMSCustomers, SMSCustomersBK;
 
-/* InteractiveLog */
-CREATE INDEX INX_BusinessMarketID ON mobile_com.dbo.BusinessMarket (BusinessMarketID);
+CREATE TABLE [dbo].[SMSCustomers](
+	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[data] [datetime] NULL,
+	[customerid] [varchar](50) NULL,
+	[nome] [varchar](100) NULL,
+	[email] [varchar](250) NULL,
+	[senha] [varchar](50) NULL,
+	[Registro] [varchar](50) NULL,
+	[DDD] [varchar](50) NULL,
+	[Terminal] [varchar](50) NULL,
+	[Produto] [varchar](50) NULL,
+	[Serial] [varchar](100) NULL,
+	[MacAddress] [varchar](50) NULL,
+	[OrderID] [varchar](50) NULL,
+	[Confirmation] [varchar](150) NULL,
+	[Status] [varchar](50) NULL,
+	[NsRef] [varchar](50) NULL,
+	[Mensagem] [varchar](500) NULL,
+	[Chave] [varchar](150) NULL,
+	[DataPequena] [smalldatetime] NULL
+);
 
-/* Language */
-create index inx_LanguageID on mobile_com.dbo.Language (LanguageID);
+insert into mobile_com.dbo.SMSCustomers
+(data,customerid,nome,email,senha,Registro,DDD,Terminal,Produto,Serial,MacAddress,OrderID,Confirmation,Status,NsRef,Mensagem,Chave,DataPequena)
+select 
+data,customerid,nome,email,senha,Registro,DDD,Terminal,Produto,Serial,MacAddress,OrderID,Confirmation,Status,NsRef,Mensagem,Chave,DataPequena
+from mobile_com.dbo.SMSCustomersBK;
 
-/* OrderItem */
-create index inx_OrderID on mobile_com.dbo.OrderItem (OrderID);
-create index inx_ProductID on mobile_com.dbo.OrderItem (ProductID);
-create index inx_CustomerID on mobile_com.dbo.OrderItem (CustomerID);
+select count(*) from mobile_com.dbo.SMSCustomersBK;
+select count(*) from mobile_com.dbo.SMSCustomers;
 
-/* Orders */
-create index inx_NetSafeOrderID on mobile_com.dbo.Orders (NetSafeOrderID);
-create index inx_PartnerOrderID on mobile_com.dbo.Orders (PartnerOrderID);
-create index inx_McafeeOrderID  on mobile_com.dbo.Orders (McafeeOrderID);
-create index inx_CustumerID  on mobile_com.dbo.Orders (CustomerID);
-
-/* Products */
-create index inx_Product on mobile_com.dbo.Products (Product);
-create index inx_ProductName on mobile_com.dbo.Products (ProductName);
-
-/* SMSAtivacao */
-select top 10 * from mobile_com.dbo.SMSAtivacao;
-sp_rename nome_atual_tabela, nome_novo_tabela
-
-[CID] [decimal](18,0) identity,
-
-/* SMSCustomers */
-/* SMSRouting */
-/* SubPartners */
-/* WebLog */
-/* NETBR35 */
-/* NEtBR60 */
-/* BusinessMarket */
-/* Customers */
+/* ducplicando a tabela e inserindo o tipo identity  */
