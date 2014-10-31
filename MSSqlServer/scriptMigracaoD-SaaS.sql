@@ -1,3 +1,175 @@
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+
+sp_rename OASISDevolutivaSenarcAssist, OASISDevolutivaSenarcAssistBK;
+
+CREATE TABLE [dbo].[OASISDevolutivaSenarcAssist](
+	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
+	[NomeArquivo] [nvarchar](50) NULL,
+	[DownloadTime] [datetime] NULL,
+	[ProcessingStatus] [nvarchar](50) NULL,
+	[Registro] [decimal](18, 0) NULL,
+	[Origem] [nvarchar](50) NULL,
+	[atualizados] [decimal](18, 0) NULL,
+	[naoencontrados] [decimal](18, 0) NULL
+);
+
+insert into dbo.OASISDevolutivaSenarcAssist
+(NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados)
+select 
+NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados
+from dbo.OASISDevolutivaSenarcAssistBK;
+select count(*) from dbo.OASISDevolutivaSenarcAssist;
+select count(*) from dbo.OASISDevolutivaSenarcAssistBK;
+
+
+sp_rename OASISDevolutivaNetVirtua, OASISDevolutivaNetVirtuaBK;
+
+CREATE TABLE [dbo].[OASISDevolutivaNetVirtua](
+	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
+	[NomeArquivo] [nvarchar](50) NULL,
+	[DownloadTime] [datetime] NULL,
+	[ProcessingStatus] [nvarchar](50) NULL,
+	[Registro] [decimal](18, 0) NULL,
+	[Origem] [nvarchar](50) NULL,
+	[atualizados] [decimal](18, 0) NULL,
+	[naoencontrados] [decimal](18, 0) NULL
+);
+
+insert into dbo.OASISDevolutivaNetVirtua
+(NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados)
+select 
+NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados
+from dbo.OASISDevolutivaNetVirtuaBK;
+select count(*) from dbo.OASISDevolutivaNetVirtua;
+select count(*) from dbo.OASISDevolutivaNetVirtuaBK;
+
+sp_rename OASISDevolutivaFlexAssist, OASISDevolutivaFlexAssistBK;
+
+CREATE TABLE [dbo].[OASISDevolutivaFlexAssist](
+	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
+	[NomeArquivo] [nvarchar](50) NULL,
+	[DownloadTime] [datetime] NULL,
+	[ProcessingStatus] [nvarchar](50) NULL,
+	[Registro] [decimal](18, 0) NULL,
+	[Origem] [nvarchar](50) NULL,
+	[atualizados] [decimal](18, 0) NULL,
+	[naoencontrados] [decimal](18, 0) NULL
+);
+
+insert into dbo.OASISDevolutivaFlexAssist
+(NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados)
+select 
+NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados
+from dbo.OASISDevolutivaFlexAssistBK;
+select count(*) from dbo.OASISDevolutivaFlexAssist;
+select count(*) from dbo.OASISDevolutivaFlexAssistBK;
+
+sp_rename OASISDevolutivaFlex, OASISDevolutivaFlexBK;
+
+CREATE TABLE [dbo].[OASISDevolutivaFlex](
+	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
+	[NomeArquivo] [nvarchar](50) NULL,
+	[DownloadTime] [datetime] NULL,
+	[ProcessingStatus] [nvarchar](50) NULL,
+	[Registro] [decimal](18, 0) NULL,
+	[Origem] [nvarchar](50) NULL,
+	[atualizados] [decimal](18, 0) NULL,
+	[naoencontrados] [decimal](18, 0) NULL
+);
+
+insert into dbo.OASISDevolutiva
+(NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados)
+select 
+NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados
+from dbo.OASISDevolutivaFlexBK;
+select count(*) from dbo.OASISDevolutiva;
+select count(*) from dbo.OASISDevolutivaFlexBK;
+
+
+sp_rename OASISDevolutiva, OASISDevolutivaBK;
+
+CREATE TABLE [dbo].[OASISDevolutiva](
+	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
+	[NomeArquivo] [nvarchar](50) NULL,
+	[DownloadTime] [datetime] NULL,
+	[ProcessingStatus] [nvarchar](50) NULL,
+	[Registro] [decimal](18, 0) NULL,
+	[Origem] [nvarchar](50) NULL,
+	[atualizados] [decimal](18, 0) NULL,
+	[naoencontrados] [decimal](18, 0) NULL
+);
+
+insert into dbo.OASISDevolutiva
+(NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados)
+select 
+NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontrados
+from dbo.OASISDevolutivaBK;
+select count(*) from dbo.OASISDevolutiva;
+select count(*) from dbo.OASISDevolutivaBK;
+
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
+
+
+
+
+/* ducplicando a tabela e inserindo o tipo identity  */
+sp_rename OASISClaroFiles, OASISClaroFilesBK;
+
+CREATE TABLE [dbo].[OASISClaroFiles](
+	SFID decimal (18,0) IDENTITY(1,1) not null,
+	[NomeArquivo] [nvarchar](50) NULL,
+	[DownloadTime] [datetime] NULL,
+	[ProcessingStatus] [nvarchar](50) NULL,
+	[Registro] [decimal](18, 0) NULL,
+	[Origem] [nvarchar](50) NULL,
+	[Retorno] [nchar](1) NULL,
+	[DataRetorno] [datetime] NULL,
+	[Nome] [nvarchar](50) NULL
+);
+
+insert into dbo.OASISClaroFiles
+(NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,Retorno,DataRetorno,Nome)
+select 
+NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,Retorno,DataRetorno,Nome
+from dbo.OASISClaroFilesBK;
+select count(*) from dbo.OASISClaroFiles;
+select count(*) from dbo.OASISClaroFilesBK;
+
+/* ducplicando a tabela e inserindo o tipo identity  */
+
+/* ducplicando a tabela e inserindo o tipo identity  */
+sp_rename OASISAudio, OASISAudioBK;
+
+CREATE TABLE [dbo].[OASISAudio](
+	sid numeric (18,0) IDENTITY(1,1),
+	[DataFTP] [smalldatetime] NULL,
+	[phone] [nvarchar](50) NULL,
+	[URL] [nvarchar](500) NULL,
+	[Tipo] [nchar](10) NULL
+);
+
+insert into dbo.OASISAudio
+(DataFTP,phone,URL,Tipo)
+select 
+DataFTP,phone,URL,Tipo
+from dbo.OASISAudioBK;
+select count(*) from dbo.OASISAudio;
+select count(*) from dbo.OASISAudioBK;
+
+/* ducplicando a tabela e inserindo o tipo identity  */
+
 /* ducplicando a tabela e inserindo o tipo identity  */
 sp_rename Ativacoes, AtivacoesBK;
 
