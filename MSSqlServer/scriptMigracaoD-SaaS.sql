@@ -1,3 +1,34 @@
+/* ducplicando a tabela e inserindo o tipo identity  */
+sp_rename Ativacoes, AtivacoesBK;
+
+CREATE TABLE [dbo].[Ativacoes](
+	[SID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[DataReport] [datetime] NULL,
+	[Partner] [nvarchar](50) NULL,
+	[PartnerName] [nvarchar](100) NULL,
+	[negocio] [nvarchar](50) NULL,
+	[BaseAtivos] [nvarchar](50) NULL,
+	[Ativos] [nvarchar](50) NULL,
+	[Cancelados] [nvarchar](50) NULL
+);
+
+insert into dbo.Ativacoes
+(DataReport,Partner,PartnerName,negocio,BaseAtivos,Ativos,Cancelados)
+select 
+DataReport,Partner,PartnerName,negocio,BaseAtivos,Ativos,Cancelados
+from [parametrizacao_com].[dbo].[Ativacoes.bkp];
+CREATE NONCLUSTERED INDEX [partner+negocio] ON [dbo].[Ativacoes] 
+(
+	[Partner] ASC,
+	[negocio] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+select count(*) from [parametrizacao_com].[dbo].[Ativacoes.bkp];
+select count(*) from dbo.Ativacoes;
+select count(*) from dbo.AtivacoesBK;
+
+/* ducplicando a tabela e inserindo o tipo identity  */
+
+
 sp_rename CustomersPCsecurity,CustomersPCsecurityBK;
 CREATE TABLE [dbo].[CustomersPCsecurity](
 	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
