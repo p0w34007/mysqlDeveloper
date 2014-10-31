@@ -463,7 +463,7 @@ SET ANSI_PADDING OFF
 GO
 
 /* ducplicando a tabela e inserindo o tipo identity  */
-sp_rename mobile_com.dbo.InteractiveLog, mobile_com.dbo.InteractiveLogBK;
+sp_rename SMSAtivacao, SMSAtivacaobk;
 
 CREATE TABLE [mobile_com].[dbo].[InteractiveLog](
 	[smsid] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
