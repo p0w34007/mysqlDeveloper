@@ -1,6 +1,5 @@
 /* criacao de indices - mobile_com.dbo */
-  
-  
+
 /* InteractiveLog */
 CREATE INDEX INX_BusinessMarketID ON mobile_com.dbo.BusinessMarket (BusinessMarketID);
 
