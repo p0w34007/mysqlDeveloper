@@ -1,0 +1,7 @@
+USE [mobile_com]
+GO
+/****** Object:  Index [phone]    Script Date: 10/31/2014 13:01:44 ******/
+CREATE NONCLUSTERED INDEX [phone] ON [dbo].[SMSAtivacao] 
+(
+	[customerid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
