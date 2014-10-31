@@ -117,4 +117,350 @@ create index inx_CustomerID on mobile.dbo.OrderItem (CustomerID);
 /* Customers */
 
 
+verificar os indices
+	Grants(perfil acesso, autorizaÃ§Ãµes)
+	
+Views
+Store Procedure
+Trigees
+Functions
+
+
+
+Security
+	Login
+
+		...usuarios...
+		
+		
+		
+
+
+USE [lojavivo]
+GO
+
+INSERT INTO [dbo].[CustomersEndPoint]
+           ([data]
+           ,[customerid]
+           ,[nome]
+           ,[FirstName]
+           ,[LastName]
+           ,[email]
+           ,[senha]
+           ,[RoleName]
+           ,[DDD]
+           ,[Terminal]
+           ,[Produto]
+           ,[SKU]
+           ,[Serial]
+           ,[UserName]
+           ,[OrderID]
+           ,[Confirmation]
+           ,[Status]
+           ,[NsRef]
+           ,[Mensagem]
+           ,[Chave]
+           ,[Licencas]
+           ,[EmailFake]
+           ,[SenhaFake]
+           ,[datacancel]
+           ,[accttype])
+     SELECT
+			[data]
+           ,[customerid]
+           ,[nome]
+           ,[FirstName]
+           ,[LastName]
+           ,[email]
+           ,[senha]
+           ,[RoleName]
+           ,[DDD]
+           ,[Terminal]
+           ,[Produto]
+           ,[SKU]
+           ,[Serial]
+           ,[UserName]
+           ,[OrderID]
+           ,[Confirmation]
+           ,[Status]
+           ,[NsRef]
+           ,[Mensagem]
+           ,[Chave]
+           ,[Licencas]
+           ,[EmailFake]
+           ,[SenhaFake]
+           ,[datacancel]
+           ,[accttype]
+	FROM CustomersEndPoint_BK
+GO
+
+
+
+USE [lojavivo]
+GO
+
+INSERT INTO [dbo].[CustomersPCsecurity]
+           ([data]
+           ,[customerid]
+           ,[nome]
+           ,[FirstName]
+           ,[LastName]
+           ,[email]
+           ,[senha]
+           ,[RoleName]
+           ,[DDD]
+           ,[Terminal]
+           ,[Produto]
+           ,[SKU]
+           ,[Serial]
+           ,[UserName]
+           ,[OrderID]
+           ,[Confirmation]
+           ,[Status]
+           ,[NsRef]
+           ,[Mensagem]
+           ,[Chave])
+     SELECT
+           [data]
+           ,[customerid]
+           ,[nome]
+           ,[FirstName]
+           ,[LastName]
+           ,[email]
+           ,[senha]
+           ,[RoleName]
+           ,[DDD]
+           ,[Terminal]
+           ,[Produto]
+           ,[SKU]
+           ,[Serial]
+           ,[UserName]
+           ,[OrderID]
+           ,[Confirmation]
+           ,[Status]
+           ,[NsRef]
+           ,[Mensagem]
+           ,[Chave]
+		FROM CustomersPCsecurity_BK
+GO
+
+
+USE [lojavivo]
+GO
+
+/****** Object:  Table [dbo].[CustomersEndPoint]    Script Date: 29/10/2014 11:14:24 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+sp_rename CustomersEndPoint, CustomersEndPoint_BK
+
+CREATE TABLE [dbo].[CustomersEndPoint](
+	[CID] [decimal](18,0) identity,
+	[data] [datetime] NULL,
+	[customerid] [varchar](50) NULL,
+	[nome] [varchar](100) NULL,
+	[FirstName] [varchar](50) NULL,
+	[LastName] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+	[senha] [varchar](50) NULL,
+	[RoleName] [varchar](50) NULL,
+	[DDD] [varchar](50) NULL,
+	[Terminal] [varchar](50) NULL,
+	[Produto] [varchar](50) NULL,
+	[SKU] [varchar](50) NULL,
+	[Serial] [varchar](150) NULL,
+	[UserName] [varchar](50) NULL,
+	[OrderID] [varchar](50) NULL,
+	[Confirmation] [varchar](150) NULL,
+	[Status] [varchar](50) NULL,
+	[NsRef] [varchar](50) NULL,
+	[Mensagem] [varchar](500) NULL,
+	[Chave] [varchar](150) NULL,
+	[Licencas] [varchar](50) NULL,
+	[EmailFake] [varchar](100) NULL,
+	[SenhaFake] [varchar](50) NULL,
+	[datacancel] [datetime] NULL,
+	[accttype] [char](10) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+
+set rowcount 0
+
+--verificar se existe a tabela temporaria
+--if isobject('#tmp1')
+IF OBJECT_ID (N'#tmp1', N'U') IS NOT NULL
+  drop table #tmp1
+
+--cria tabela temporaria com todos os dados
+select * 
+ into #tmp1
+from customersEndPoint_Bk
+
+--configuro a qtde de linhas para transferencia
+set rowcount 100000
+
+while (select count(1) from #tmp1) > 0
+begin
+
+	--inserir na tabela nova
+	insert into CustomerEndPoint ([LOGID]
+      ,[DataPost]
+      ,[ConfirmationNumber]
+      ,[CustomerID]
+      ,[OrderID]
+      ,[Email]
+      ,[Request]
+      ,[Status]
+      ,[Mensagem]
+      ,[McREF]
+      ,[XMLIn]
+      ,[XMLSend]
+      ,[XMLRec]
+      ,[XMLOut])
+	select 
+		[LOGID]
+      ,[DataPost]
+      ,[ConfirmationNumber]
+      ,[CustomerID]
+      ,[OrderID]
+      ,[Email]
+      ,[Request]
+      ,[Status]
+      ,[Mensagem]
+      ,[McREF]
+      ,[XMLIn]
+      ,[XMLSend]
+      ,[XMLRec]
+      ,[XMLOut]
+	from #tmp1
+
+	print 'inserido'
+
+	--excluir da tabela tmp1
+	delete from #tmp1
+end
+set rowcount 0
+
+
+select count(1) 
+from CustomersEndPoint_BK
+
+select count(1) 
+from CustomerEndPoint
+
+
+
+
+USE [lojavivo]
+GO
+
+/****** Object:  Table [dbo].[CustomersEndPoint]    Script Date: 29/10/2014 11:14:24 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+sp_rename CustomersEndPoint, CustomersEndPoint_BK
+
+CREATE TABLE [dbo].[CustomersEndPoint](
+	[CID] [decimal](18,0) identity,
+	[data] [datetime] NULL,
+	[customerid] [varchar](50) NULL,
+	[nome] [varchar](100) NULL,
+	[FirstName] [varchar](50) NULL,
+	[LastName] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+	[senha] [varchar](50) NULL,
+	[RoleName] [varchar](50) NULL,
+	[DDD] [varchar](50) NULL,
+	[Terminal] [varchar](50) NULL,
+	[Produto] [varchar](50) NULL,
+	[SKU] [varchar](50) NULL,
+	[Serial] [varchar](150) NULL,
+	[UserName] [varchar](50) NULL,
+	[OrderID] [varchar](50) NULL,
+	[Confirmation] [varchar](150) NULL,
+	[Status] [varchar](50) NULL,
+	[NsRef] [varchar](50) NULL,
+	[Mensagem] [varchar](500) NULL,
+	[Chave] [varchar](150) NULL,
+	[Licencas] [varchar](50) NULL,
+	[EmailFake] [varchar](100) NULL,
+	[SenhaFake] [varchar](50) NULL,
+	[datacancel] [datetime] NULL,
+	[accttype] [char](10) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+
+
+USE [lojavivo]
+GO
+
+/****** Object:  Table [dbo].[CustomersPCsecurity]    Script Date: 29/10/2014 11:28:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+sp_rename CustomersPCsecurity, CustomersPCsecurity_BK
+
+
+CREATE TABLE [dbo].[CustomersPCsecurity](
+	[CID] [decimal](18, 0) identity,
+	[data] [datetime] NULL,
+	[customerid] [varchar](50) NULL,
+	[nome] [varchar](100) NULL,
+	[FirstName] [varchar](50) NULL,
+	[LastName] [varchar](50) NULL,
+	[email] [varchar](50) NULL,
+	[senha] [varchar](50) NULL,
+	[RoleName] [varchar](50) NULL,
+	[DDD] [varchar](50) NULL,
+	[Terminal] [varchar](50) NULL,
+	[Produto] [varchar](50) NULL,
+	[SKU] [varchar](50) NULL,
+	[Serial] [varchar](150) NULL,
+	[UserName] [varchar](50) NULL,
+	[OrderID] [varchar](50) NULL,
+	[Confirmation] [varchar](150) NULL,
+	[Status] [varchar](50) NULL,
+	[NsRef] [varchar](50) NULL,
+	[Mensagem] [varchar](500) NULL,
+	[Chave] [varchar](150) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
 #####################################################################################################################
