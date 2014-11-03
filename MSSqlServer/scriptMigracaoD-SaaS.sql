@@ -130,9 +130,9 @@ select count(*) from dbo.OASISClaroFilesBK;
 
 /* ducplicando a tabela e inserindo o tipo identity  */
 
-/* ducplicando a tabela e inserindo o tipo identity  */
+go
 sp_rename OASISAudio, OASISAudioBK;
-
+go
 CREATE TABLE [dbo].[OASISAudio](
 	sid numeric (18,0) IDENTITY(1,1),
 	[DataFTP] [smalldatetime] NULL,
@@ -151,9 +151,9 @@ select count(*) from dbo.OASISAudioBK;
 
 /* ducplicando a tabela e inserindo o tipo identity  */
 
-/* ducplicando a tabela e inserindo o tipo identity  */
+go
 sp_rename Ativacoes, AtivacoesBK;
-
+go
 CREATE TABLE [dbo].[Ativacoes](
 	[SID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[DataReport] [datetime] NULL,
@@ -181,8 +181,9 @@ select count(*) from dbo.AtivacoesBK;
 
 /* ducplicando a tabela e inserindo o tipo identity  */
 
-
+go
 sp_rename CustomersPCsecurity,CustomersPCsecurityBK;
+go
 CREATE TABLE [dbo].[CustomersPCsecurity](
 	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[data] [datetime] NULL,
@@ -213,8 +214,9 @@ data,customerid,nome,FirstName,LastName,email,senha,RoleName,DDD,Terminal,Produt
 from CustomersPCsecurityBK;
 select count(*) from CustomersPCsecurity;
 select count(*) from CustomersPCsecurityBK;
-
+go
 sp_rename CustumersEndPoint,CustumersEndPointBK;
+go
 CREATE TABLE [dbo].[CustomersEndPoint](
 	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[data] [datetime] NULL,
@@ -591,8 +593,9 @@ End
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'NEtBR60'
 
-
+go
 sp_rename InterativeLog, InterativeLogBK;
+go
 CREATE TABLE [dbo].[InteractiveLog](
 	[smsid] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[smsdata] [datetime] NULL,
@@ -607,8 +610,9 @@ InterativeLogBK;
 select count(*) from InterativeLogBK;
 select count(*) from InterativeLog;
 
-
+go
 sp_rename SMSAtivacao, SMSAtivacaoBK;
+go
 CREATE TABLE [dbo].[SMSAtivacao](
 	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[data] [datetime] NULL,
@@ -646,11 +650,11 @@ data,customerid,nome,email,senha,Registro,DDD,Terminal,Produto,Serial,MacAddress
 from SMSAtivacaoBK;
 select count(*) from SMSAtivacao;
 select count(*) from SMSAtivacaoBK;
-
+go
 
 /* ducplicando a tabela e inserindo o tipo identity  */
 sp_rename SMSCustomers, SMSCustomersBK;
-
+go
 CREATE TABLE [dbo].[SMSCustomers](
 	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[data] [datetime] NULL,
@@ -682,10 +686,9 @@ from mobile_com.dbo.SMSCustomersBK;
 select count(*) from mobile_com.dbo.SMSCustomersBK;
 select count(*) from mobile_com.dbo.SMSCustomers;
 
-/* ducplicando a tabela e inserindo o tipo identity  */
-/* ducplicando a tabela e inserindo o tipo identity  */
+go
 sp_rename WebLog, WebLogBK;
-
+go
 CREATE TABLE [dbo].[WebLog](
 	[LOGID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[DataPost] [datetime] NULL,
@@ -703,13 +706,13 @@ CREATE TABLE [dbo].[WebLog](
 	[XMLOut] [varchar](1000) NULL
 );
 
-truncate table mobile_com.dbo.WebLog;
+go
 insert into mobile_com.dbo.WebLog
 (DataPost,ConfirmationNumber,CustomerID,OrderID,Email,Request,Status,Mensagem,McREF,XMLIn,XMLSend,XMLRec,XMLOut)
 select 
 DataPost,ConfirmationNumber,CustomerID,OrderID,Email,Request,Status,Mensagem,McREF,XMLIn,XMLSend,XMLRec,XMLOut
 from mobile_com.dbo.WebLogBK;
-
+go
 select count(*) from mobile_com.dbo.WebLogBK;
 select count(*) from mobile_com.dbo.WebLog;
 
