@@ -1,13 +1,5 @@
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-
 sp_rename OASISDevolutivaSenarcAssist, OASISDevolutivaSenarcAssistBK;
-
+go
 CREATE TABLE [dbo].[OASISDevolutivaSenarcAssist](
 	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
 	[NomeArquivo] [nvarchar](50) NULL,
@@ -27,9 +19,9 @@ from dbo.OASISDevolutivaSenarcAssistBK;
 select count(*) from dbo.OASISDevolutivaSenarcAssist;
 select count(*) from dbo.OASISDevolutivaSenarcAssistBK;
 
-
+go
 sp_rename OASISDevolutivaNetVirtua, OASISDevolutivaNetVirtuaBK;
-
+go
 CREATE TABLE [dbo].[OASISDevolutivaNetVirtua](
 	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
 	[NomeArquivo] [nvarchar](50) NULL,
@@ -48,9 +40,9 @@ NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontr
 from dbo.OASISDevolutivaNetVirtuaBK;
 select count(*) from dbo.OASISDevolutivaNetVirtua;
 select count(*) from dbo.OASISDevolutivaNetVirtuaBK;
-
+go
 sp_rename OASISDevolutivaFlexAssist, OASISDevolutivaFlexAssistBK;
-
+go
 CREATE TABLE [dbo].[OASISDevolutivaFlexAssist](
 	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
 	[NomeArquivo] [nvarchar](50) NULL,
@@ -69,9 +61,9 @@ NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontr
 from dbo.OASISDevolutivaFlexAssistBK;
 select count(*) from dbo.OASISDevolutivaFlexAssist;
 select count(*) from dbo.OASISDevolutivaFlexAssistBK;
-
+go
 sp_rename OASISDevolutivaFlex, OASISDevolutivaFlexBK;
-
+go
 CREATE TABLE [dbo].[OASISDevolutivaFlex](
 	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
 	[NomeArquivo] [nvarchar](50) NULL,
@@ -91,9 +83,9 @@ from dbo.OASISDevolutivaFlexBK;
 select count(*) from dbo.OASISDevolutiva;
 select count(*) from dbo.OASISDevolutivaFlexBK;
 
-
+go
 sp_rename OASISDevolutiva, OASISDevolutivaBK;
-
+go
 CREATE TABLE [dbo].[OASISDevolutiva](
 	SFID decimal (18,0) IDENTITY(1,1) NOT NULL,
 	[NomeArquivo] [nvarchar](50) NULL,
@@ -112,21 +104,10 @@ NomeArquivo,DownloadTime,ProcessingStatus,Registro,Origem,atualizados,naoencontr
 from dbo.OASISDevolutivaBK;
 select count(*) from dbo.OASISDevolutiva;
 select count(*) from dbo.OASISDevolutivaBK;
-
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-/* nao rodado ainda   nao rodado ainda   nao rodado ainda   nao rodado ainda   nao ro*/
-
-
-
-
+go
 /* ducplicando a tabela e inserindo o tipo identity  */
 sp_rename OASISClaroFiles, OASISClaroFilesBK;
-
+go
 CREATE TABLE [dbo].[OASISClaroFiles](
 	SFID decimal (18,0) IDENTITY(1,1) not null,
 	[NomeArquivo] [nvarchar](50) NULL,
