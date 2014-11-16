@@ -8,7 +8,7 @@ CREATE NONCLUSTERED INDEX [nrc] ON [dbo].[atualizar_email]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-GO
+
 sp_rename PIUsuario, PIUsuarioBK;
 go
 
@@ -21,19 +21,19 @@ CREATE TABLE [dbo].[PIUsuario](
 	[TipoUsuario] [nvarchar](50) NULL,
 	[Data] [datetime] NULL
 ) ON [PRIMARY]
-
+GO
 insert into PIUsuario
 (Nome,Login,Grupo,CPF,TipoUsuario,Data)
 select
 Nome,Login,Grupo,CPF,TipoUsuario,Data
 from PIUsuarioBK;
-
+GO
 select count(*) from PIUsuario;
+GO
 select count(*) from PIUsuarioBK;
+GO
 
-go
 
-go
 sp_rename SpeedyAFO, SpeedyAFOBK;
 go
 CREATE TABLE [dbo].[SpeedyAFO](
@@ -45,8 +45,8 @@ CREATE TABLE [dbo].[SpeedyAFO](
 	[StatusArquivo] [nvarchar](50) NULL,
 	[StatusErro] [nvarchar](500) NULL
 ) ON [PRIMARY]
-
 GO
+
 
 insert into SpeedyAFO
 (AFOSEQ,DataEmissao,Arquivo,Nome,StatusArquivo,StatusErro)
@@ -55,10 +55,10 @@ AFOSEQ,DataEmissao,Arquivo,Nome,StatusArquivo,StatusErro
 from SpeedyAFOBK;
 go
 select count(*) from SpeedyAFO;
+GO
 select count(*) from SpeedyAFOBK;
 go
 
-go
 sp_rename SpeedyAFOExportado, SpeedyAFOExportadoBK;
 go
 CREATE TABLE [dbo].[SpeedyAFOExportado](
@@ -83,8 +83,8 @@ CREATE TABLE [dbo].[SpeedyAFOExportado](
 	[Redebito] [nvarchar](50) NULL,
 	[CodigoServico] [nvarchar](50) NULL
 ) ON [PRIMARY]
-
 GO
+
 insert into SpeedyAFOExportado
 (Arquivo,Vencimento,DataLimiteInicial,CodEmp,TpServico,DataEvento,Filler1,DDD,PrefixoCentral,Milhar,Conjugado,Val,Ref,Parcela,Volume,Duracao,Filler2,Redebito,CodigoServico)
 select
@@ -93,10 +93,10 @@ from
 SpeedyAFOExportadoBK;
 go
 select count(*) from dbo.OASISDevolutivaSenarcAssist;
+GO
 select count(*) from dbo.OASISDevolutivaSenarcAssistBK;
 go
-USE [Speedy_Nany_Production]
-GO
+
 
 /****** Object:  Index [afoexid]    Script Date: 14/11/2014 11:02:55 ******/
 CREATE NONCLUSTERED INDEX [afoexid] ON [dbo].[SpeedyAFOExportado]
@@ -107,7 +107,7 @@ GO
 
 
 sp_rename SpeedyCritica, SpeedyCriticaBK;
-
+GO
 CREATE TABLE [dbo].[SpeedyCritica](
 	[CRID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[Arquivo] [nvarchar](50) NULL,
@@ -126,10 +126,11 @@ Arquivo,DownloadTime,afo,status,Critica
 from SpeedyCriticaBK;
 go
 select count(*) from SpeedyCritica;
+GO
 select count(*) from SpeedyCriticaBK;
 go
 sp_rename SpeedyCustomers, SpeedyCustomersBK;
-
+GO
 CREATE TABLE [dbo].[SpeedyCustomers](
 	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[arquivo] [nvarchar](50) NULL,
@@ -174,21 +175,16 @@ from SpeedyCustomersBK;
 go
 
 select count(*) from SpeedyCustomers;
+GO
 select count(*) from SpeedyCustomersBK;
 
 go
-
-USE [Speedy_Nany_Production]
-GO
 
 /****** Object:  Index [Canal]    Script Date: 14/11/2014 11:10:29 ******/
 CREATE NONCLUSTERED INDEX [Canal] ON [dbo].[SpeedyCustomers]
 (
 	[canal] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [CID]    Script Date: 14/11/2014 11:10:44 ******/
@@ -198,17 +194,11 @@ CREATE NONCLUSTERED INDEX [CID] ON [dbo].[SpeedyCustomers]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [data]    Script Date: 14/11/2014 11:10:56 ******/
 CREATE NONCLUSTERED INDEX [data] ON [dbo].[SpeedyCustomers]
 (
 	[data] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [ddd]    Script Date: 14/11/2014 11:11:08 ******/
@@ -218,9 +208,6 @@ CREATE NONCLUSTERED INDEX [ddd] ON [dbo].[SpeedyCustomers]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [DiaVencimento]    Script Date: 14/11/2014 11:11:19 ******/
 CREATE NONCLUSTERED INDEX [DiaVencimento] ON [dbo].[SpeedyCustomers]
 (
@@ -228,17 +215,11 @@ CREATE NONCLUSTERED INDEX [DiaVencimento] ON [dbo].[SpeedyCustomers]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [NRC]    Script Date: 14/11/2014 11:11:31 ******/
 CREATE NONCLUSTERED INDEX [NRC] ON [dbo].[SpeedyCustomers]
 (
 	[nrc] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [produto+diavencimento]    Script Date: 14/11/2014 11:11:43 ******/
@@ -273,11 +254,11 @@ from SpeedyEmailBK;
 go
 
 select count(*) from SpeedyEmail;
+GO
 select count(*) from SpeedyEmailBK;
 
 go
 
-go
 sp_rename SpeedyFiles, SpeedyFilesBK;
 go
 CREATE TABLE [dbo].[SpeedyFiles](
@@ -318,12 +299,10 @@ from SpeedyFilesBK;
 go
 
 select count(*) from SpeedyFiles;
+GO
 select count(*) from SpeedyFilesBK;
 
 go
-
-USE [Speedy_Nany_Production]
-GO
 
 /****** Object:  Index [NomeArquivo]    Script Date: 14/11/2014 11:18:06 ******/
 CREATE NONCLUSTERED INDEX [NomeArquivo] ON [dbo].[SpeedyFiles]
@@ -358,6 +337,7 @@ DownloadTime,NomeArquivo,LidosSER,LidosSVA,Inclusoes,Encontrados,Corrigidos
 from SpeedyFiltroBK;
 go
 select count(*) from SpeedyFiltro;
+GO
 select count(*) from SpeedyFiltroBK;
 go
 
@@ -389,6 +369,7 @@ from
 SpeedyJobBK;
 go
 select count(*) from SpeedyJob;
+GO
 select count(*) from SpeedyJobBK;
 go
 sp_rename SpeedyLog, SpeedyLogBK;
@@ -414,8 +395,8 @@ from SpeedyLogBK;
 
 go
 select count(*) from SpeedyLog;
+GO
 select count(*) from SpeedyLogBK;
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [logid]    Script Date: 14/11/2014 11:28:04 ******/
@@ -427,7 +408,7 @@ GO
 
 
 sp_rename SpeedyLogEnvio, SpeedyLogEnvioBK;
-
+GO
 CREATE TABLE [dbo].[SpeedyLogEnvio](
 	[SLEID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[DataEnvio] [datetime] NULL,
@@ -445,10 +426,11 @@ from SpeedyLogEnvioBK;
 go
 
 select count(*) from SpeedyLogEnvio;
+GO
 select count(*) from SpeedyLogEnvioBK;
 go
 sp_rename SpeedyOrders, SpeedyOrdersBK;
-
+GO
 CREATE TABLE [dbo].[SpeedyOrders](
 	[ORDERID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[arquivo] [nvarchar](50) NULL,
@@ -494,13 +476,11 @@ insert into SpeedyOrders
 select 
 arquivo,data,Origem,Sequencial,customerid,TipoOrdem,status,nome,email,senha,CPF,nrc,DDD,terminal,tipospeedy,produto,periodododesconto,valordesconto,valor,datadosistema,dataenviada,operador,canal,NetSafePOrderID,NetSafeCustomerID,NetSafeID,NetSafeStatus,NetSafeMensagem,NetSafeConfirmationNumber,NetSafeSKU,NetSafeDataProcessamento,AtivacaoIP,AtivacaoData,TipoOS
 from SpeedyOrdersBK;
-
+GO
 select count(*) from SpeedyOrders;
+GO
 select count(*) from SpeedyOrdersBK;
 go
-
-USE [Speedy_Nany_Production]
-GO
 
 /****** Object:  Index [Data]    Script Date: 14/11/2014 11:35:38 ******/
 CREATE NONCLUSTERED INDEX [Data] ON [dbo].[SpeedyOrders]
@@ -509,8 +489,6 @@ CREATE NONCLUSTERED INDEX [Data] ON [dbo].[SpeedyOrders]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
 
 /****** Object:  Index [NRC+Arquivo]    Script Date: 14/11/2014 11:35:49 ******/
 CREATE NONCLUSTERED INDEX [NRC+Arquivo] ON [dbo].[SpeedyOrders]
@@ -518,9 +496,6 @@ CREATE NONCLUSTERED INDEX [NRC+Arquivo] ON [dbo].[SpeedyOrders]
 	[nrc] ASC,
 	[arquivo] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [NRC+Produto]    Script Date: 14/11/2014 11:36:00 ******/
@@ -531,17 +506,11 @@ CREATE NONCLUSTERED INDEX [NRC+Produto] ON [dbo].[SpeedyOrders]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [OrderID]    Script Date: 14/11/2014 11:36:11 ******/
 CREATE NONCLUSTERED INDEX [OrderID] ON [dbo].[SpeedyOrders]
 (
 	[ORDERID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [Status]    Script Date: 14/11/2014 11:36:22 ******/
@@ -553,7 +522,7 @@ GO
 
 
 sp_rename SpeedySER, SpeedySERBK;
-
+GO
 CREATE TABLE [dbo].[SpeedySER](
 	[SERID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[arquivo] [nvarchar](50) NULL,
@@ -577,12 +546,10 @@ insert into SpeedySER
 select
 arquivo,data,customerid,Status,operacao,nome,nrc,ddd,terminal,CLAPLA,TIPPC1,produto
 from SpeedySERBK;
-
+GO
 select count(*) from SpeedySER;
+GO
 select count(*) from SpeedySERBK;
-
-go
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [Arquivo]    Script Date: 14/11/2014 11:41:37 ******/
@@ -592,17 +559,11 @@ CREATE NONCLUSTERED INDEX [Arquivo] ON [dbo].[SpeedySER]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [data]    Script Date: 14/11/2014 11:41:53 ******/
 CREATE NONCLUSTERED INDEX [data] ON [dbo].[SpeedySER]
 (
 	[data] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [nrc+arquivo]    Script Date: 14/11/2014 11:42:11 ******/
@@ -613,9 +574,6 @@ CREATE NONCLUSTERED INDEX [nrc+arquivo] ON [dbo].[SpeedySER]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [nrc-data]    Script Date: 14/11/2014 11:42:29 ******/
 CREATE NONCLUSTERED INDEX [nrc-data] ON [dbo].[SpeedySER]
 (
@@ -624,17 +582,11 @@ CREATE NONCLUSTERED INDEX [nrc-data] ON [dbo].[SpeedySER]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [serid]    Script Date: 14/11/2014 11:42:46 ******/
 CREATE NONCLUSTERED INDEX [serid] ON [dbo].[SpeedySER]
 (
 	[SERID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [terminal]    Script Date: 14/11/2014 11:42:59 ******/
@@ -648,7 +600,7 @@ GO
 
 
 sp_rename SpeedySVA, SpeedySVABK;
-
+GO
 CREATE TABLE [dbo].[SpeedySVA](
 	[SVAID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
 	[arquivo] [nvarchar](50) NULL,
@@ -681,11 +633,10 @@ insert into SpeedySVA
 select 
 arquivo,sequencial,NomeGenerico,data,customerid,status,nome,email,CPF,nrc,DDD,terminal,tipospeedy,produto,periodododesconto,valordesconto,valor,datadosistema,dataenviada,operador,canal
 from SpeedySVABK;
-
+GO
 select count(*) from SpeedySVA;
+GO
 select count(*) from SpeedySVABK;
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [Arquivo]    Script Date: 14/11/2014 11:46:23 ******/
@@ -695,16 +646,11 @@ CREATE NONCLUSTERED INDEX [Arquivo] ON [dbo].[SpeedySVA]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [data]    Script Date: 14/11/2014 11:46:39 ******/
 CREATE NONCLUSTERED INDEX [data] ON [dbo].[SpeedySVA]
 (
 	[data] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
-GO
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [nrc+arquivo]    Script Date: 14/11/2014 11:46:50 ******/
@@ -713,9 +659,6 @@ CREATE NONCLUSTERED INDEX [nrc+arquivo] ON [dbo].[SpeedySVA]
 	[arquivo] ASC,
 	[nrc] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [nrc+arquivo+produto]    Script Date: 14/11/2014 11:47:00 ******/
@@ -727,17 +670,11 @@ CREATE NONCLUSTERED INDEX [nrc+arquivo+produto] ON [dbo].[SpeedySVA]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
 GO
 
-USE [Speedy_Nany_Production]
-GO
-
 /****** Object:  Index [svaid]    Script Date: 14/11/2014 11:47:12 ******/
 CREATE NONCLUSTERED INDEX [svaid] ON [dbo].[SpeedySVA]
 (
 	[SVAID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-
-USE [Speedy_Nany_Production]
 GO
 
 /****** Object:  Index [terminal]    Script Date: 14/11/2014 11:47:22 ******/
@@ -774,8 +711,9 @@ select
 TrialCustomerID,TrialOrderID,TrialDate,TrialName,TrialEmail,TrialSenha,TrialNRC,TrialStatus,TrialMensagem,TrialID,TrialXML
 from
 SpeedyTrialBK;
-
+GO
 select count(*) from SpeedyTrial;
+GO
 select count(*) from SpeedyTrialBK;
 
 go
@@ -800,44 +738,10 @@ select
 Periodo,Vencimento,DataLimiteIni,DataLimiteFim
 from
 SpeedyVencimentosBK;
-
+GO
 select count(*) from SpeedyVencimentos;
+GO
 select count(*) from SpeedyVencimentosBK;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
