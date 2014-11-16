@@ -30,8 +30,9 @@ insert into PdtiCustomers
 select
 data,customerid,nome,email,senha,Registro,DDD,Terminal,Produto,Serial,MacAddress,OrderID,Confirmation,Status,NsRef,Mensagem,Chave
 from
-PdtiCustomersBK
-
+PdtiCustomersBK;
+GO
 select count(*) from PdtiCustomers;
+GO
 select count(*) from PdtiCustomersBK
 
