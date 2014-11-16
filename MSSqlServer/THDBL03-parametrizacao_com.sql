@@ -22,6 +22,7 @@ select
 DataReport,Partner,PartnerName,Negocio,BaseAtivos,Ativos,Cancelados
 from 
 AtivacoesBK;
-
+GO
 select count(*) from Ativacoes/
+GO
 select count(*) from AtivacoesBK;
