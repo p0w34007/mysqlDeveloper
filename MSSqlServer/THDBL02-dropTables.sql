@@ -6,7 +6,7 @@ drop table [dbo].[SpeedyAFOBK];
 GO
 drop table [dbo].[SpeedyAFOExportadoBK];
 GO
-drop table CREATE TABLE [dbo].[SpeedyCriticaBK];
+drop table [dbo].[SpeedyCriticaBK];
 GO
 drop table [dbo].[SpeedyCustomersBK];
 GO
