@@ -1,9 +1,7 @@
 use pdti_com;
 GO
 sp_rename PdtiCustomers, PdtiCustomersBK;
-
 GO
-
 CREATE TABLE [dbo].[PdtiCustomers](
 	[CID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[data] [datetime] NULL,
@@ -24,9 +22,7 @@ CREATE TABLE [dbo].[PdtiCustomers](
 	[Mensagem] [varchar](500) NULL,
 	[Chave] [varchar](150) NULL
 ) ON [PRIMARY]
-
 GO
-
 insert into PdtiCustomers
 (data,customerid,nome,email,senha,Registro,DDD,Terminal,Produto,Serial,MacAddress,OrderID,Confirmation,Status,NsRef,Mensagem,Chave)
 select
