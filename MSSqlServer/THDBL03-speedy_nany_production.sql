@@ -1,4 +1,4 @@
-USE [Speedy_Nany_Production]
+USE [speedy_nany_production_thdbl03]
 GO
 
 /****** Object:  Index [email]    Script Date: 14/11/2014 13:10:57 ******/
