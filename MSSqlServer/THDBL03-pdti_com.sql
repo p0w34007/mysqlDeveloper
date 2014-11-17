@@ -32,5 +32,5 @@ PdtiCustomersBK;
 GO
 select count(*) from PdtiCustomers;
 GO
-select count(*) from PdtiCustomersBK
+select count(*) from PdtiCustomersBK;
 
