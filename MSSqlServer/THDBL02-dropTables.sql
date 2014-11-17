@@ -1,31 +1,31 @@
 USE [Speedy_Nany_Production];
 GO
-drop table [dbo].[PIUsuario];
+drop table [dbo].[PIUsuarioBK];
 GO
-drop table [dbo].[SpeedyAFO];
+drop table [dbo].[SpeedyAFOBK];
 GO
-drop table [dbo].[SpeedyAFOExportado];
+drop table [dbo].[SpeedyAFOExportadoBK];
 GO
-drop table CREATE TABLE [dbo].[SpeedyCritica];
+drop table CREATE TABLE [dbo].[SpeedyCriticaBK];
 GO
-drop table [dbo].[SpeedyCustomers];
+drop table [dbo].[SpeedyCustomersBK];
 GO
-drop table [dbo].[SpeedyFiles];
+drop table [dbo].[SpeedyFilesBK];
 GO
-drop table [dbo].[SpeedyFiltro];
+drop table [dbo].[SpeedyFiltroBK];
 GO
-drop table [dbo].[SpeedyJob];
+drop table [dbo].[SpeedyJobBK];
 GO
-drop table [dbo].[SpeedyLog];
+drop table [dbo].[SpeedyLogBK];
 GO
-drop table [dbo].[SpeedyLogEnvio];
+drop table [dbo].[SpeedyLogEnvioBK];
 GO
-drop table [dbo].[SpeedyOrders];
+drop table [dbo].[SpeedyOrdersBK];
 GO
-drop table [dbo].[SpeedySER];
+drop table [dbo].[SpeedySERBK];
 GO
-drop table [dbo].[SpeedySVA];
+drop table [dbo].[SpeedySVABK];
 GO
-drop table [dbo].[SpeedyTrial];
+drop table [dbo].[SpeedyTrialBK];
 GO
-drop table [dbo].[SpeedyVencimentos];
+drop table [dbo].[SpeedyVencimentosBK];
