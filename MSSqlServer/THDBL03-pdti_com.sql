@@ -1,3 +1,5 @@
+use pdti_com;
+GO
 sp_rename PdtiCustomers, PdtiCustomersBK;
 
 GO
