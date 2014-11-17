@@ -29,3 +29,5 @@ GO
 drop table [dbo].[SpeedyTrialBK];
 GO
 drop table [dbo].[SpeedyVencimentosBK];
+GO
+drop table [dbo].[SpeedyEmailBK];
