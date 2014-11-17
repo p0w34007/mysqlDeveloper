@@ -1,8 +1,7 @@
-/* parametrizacao_com  */
-sp_rename Ativacoes, AtivacoesBK;
-
+use parametrizacao_com;
 GO
-
+sp_rename Ativacoes, AtivacoesBK;
+GO
 CREATE TABLE [dbo].[Ativacoes](
 	[SID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[DataReport] [datetime] NULL,
