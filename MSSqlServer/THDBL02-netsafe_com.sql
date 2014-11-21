@@ -1,6 +1,21 @@
 USE [netsafe_com]
 GO
 
+/****** Object:  Index [ativacoes]    Script Date: 21/11/2014 16:20:52 ******/
+CREATE NONCLUSTERED INDEX [ativacoes] ON [dbo].[weblog]
+(
+	[Request] ASC,
+	[DataPost] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+
+
+
+
+USE [netsafe_com]
+GO
+
 /****** Object:  Index [CustomerID]    Script Date: 13/11/2014 21:03:17 ******/
 CREATE NONCLUSTERED INDEX [CustomerID] ON [dbo].[Customers]
 (
