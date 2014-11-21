@@ -1,6 +1,33 @@
 USE [netsafe_com]
 GO
 
+/****** Object:  View [dbo].[Xpress - netcp98]    Script Date: 21/11/2014 17:50:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[Xpress - netcp98]
+AS
+SELECT     TOP 100 PERCENT dbo.Orders.SubPartnerID, dbo.Customers.Email, dbo.Orders.CustomerID, dbo.Orders.PartnerOrderID, dbo.Orders.McafeeOrderID, 
+                      dbo.Orders.RequestType, dbo.Orders.OrderDate, dbo.Orders.OrderEnd, dbo.OrderItem.DeskTopMailBoxes, dbo.OrderItem.SubscriptionLength, 
+                      dbo.Orders.StatusMcafee, dbo.OrderItem.ProductID, dbo.Orders.Status
+FROM         dbo.Orders INNER JOIN
+                      dbo.OrderItem ON dbo.Orders.NetSafeOrderID = dbo.OrderItem.OrderID AND dbo.Orders.SubPartnerID = dbo.OrderItem.SubPartnerID INNER JOIN
+                      dbo.Customers ON dbo.Orders.CustomerID = dbo.Customers.CustomerID AND dbo.Orders.SubPartnerID = dbo.Customers.SubPartnerID
+WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate) AND 
+                      (dbo.Orders.StatusMcafee LIKE N'%success%') AND (dbo.Orders.SubPartnerID = N'netcp98') AND (dbo.Orders.Status = N'released' OR
+                      dbo.Orders.Status = N'warning')
+ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
+
+GO
+
+
+
+USE [netsafe_com]
+GO
+
 /****** Object:  View [dbo].[WebLog_View]    Script Date: 21/11/2014 17:49:33 ******/
 SET ANSI_NULLS ON
 GO
