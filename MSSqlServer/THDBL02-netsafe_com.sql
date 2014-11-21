@@ -1,3 +1,36 @@
+
+sp_rename weblog, weblogBK;
+
+CREATE TABLE [dbo].[weblog](
+	[LOGID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[DataPost] [datetime] NULL,
+	[ConfirmationNumber] [nvarchar](255) NULL,
+	[CustomerID] [nvarchar](50) NULL,
+	[OrderID] [nvarchar](50) NULL,
+	[Email] [nvarchar](150) NULL,
+	[Request] [nvarchar](50) NULL,
+	[Status] [nvarchar](50) NULL,
+	[Mensagem] [varchar](1000) NULL,
+	[McREF] [nvarchar](100) NULL,
+	[XMLIn] [varchar](1000) NULL,
+	[XMLSend] [varchar](1000) NULL,
+	[XMLRec] [varchar](2000) NULL,
+	[XMLOut] [varchar](1000) NULL
+) ON [PRIMARY]
+
+GO
+insert into weblog
+(DataPost,ConfirmationNumber,CustomerID,OrderID,Email,Request,Status,Mensagem,McREF,XMLIn,XMLSend,XMLRec,XMLOut)
+select
+DataPost,ConfirmationNumber,CustomerID,OrderID,Email,Request,Status,Mensagem,McREF,XMLIn,XMLSend,XMLRec,XMLOut
+from weblogBK;
+GO
+select count(*) from weblog;
+GO
+select count(*) from weblogBK;
+GO
+
+
 sp_rename SpeedyOrders, SpeedyOrdersBK;
 
 CREATE TABLE [dbo].[SpeedyOrders](
