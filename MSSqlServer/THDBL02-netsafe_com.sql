@@ -10,6 +10,17 @@ CREATE NONCLUSTERED INDEX [ativacoes] ON [dbo].[weblog]
 GO
 
 
+USE [netsafe_com]
+GO
+
+/****** Object:  Index [confirmation]    Script Date: 21/11/2014 16:21:46 ******/
+CREATE NONCLUSTERED INDEX [confirmation] ON [dbo].[weblog]
+(
+	[ConfirmationNumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+
+
 
 
 
