@@ -1,3 +1,38 @@
+sp_rename SpeedyOrders, SpeedyOrdersBK;
+
+CREATE TABLE [dbo].[SpeedyOrders](
+	[SOID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[Arquivo] [nvarchar](100) NULL,
+	[DataLeitura] [datetime] NULL,
+	[RCUSTOMERID] [nvarchar](60) NULL,
+	[RNETSAFEREF] [nvarchar](60) NULL,
+	[RPARTNERREF] [nvarchar](60) NULL,
+	[SKU] [nvarchar](30) NULL,
+	[RFIRSTNAME] [nvarchar](60) NULL,
+	[RLASTNAME] [nvarchar](60) NULL,
+	[Email] [nvarchar](100) NULL,
+	[Senha] [nvarchar](30) NULL,
+	[Operacao] [nvarchar](50) NULL,
+	[StatusOperacao] [nvarchar](50) NULL,
+	[DataOperacao] [datetime] NULL,
+	[Transacao] [nvarchar](50) NULL,
+	[StatusTransacao] [nvarchar](50) NULL,
+	[DataTransacao] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+insert into SpeedyOrders
+(Arquivo,DataLeitura,RCUSTOMERID,RNETSAFEREF,RPARTNERREF,SKU,RFIRSTNAME,RLASTNAME,Email,Senha,Operacao,StatusOperacao,DataOperacao,Transacao,StatusTransacao,DataTransacao)
+select
+Arquivo,DataLeitura,RCUSTOMERID,RNETSAFEREF,RPARTNERREF,SKU,RFIRSTNAME,RLASTNAME,Email,Senha,Operacao,StatusOperacao,DataOperacao,Transacao,StatusTransacao,DataTransacao
+from SpeedyOrdersBK;
+GO
+select count(*) from SpeedyOrders;
+GO
+select count(*) from SpeedyOrdersBK;
+GO
+
+
 sp_rename SpeedyFiles, SpeedyFilesBK;
 
 CREATE TABLE [dbo].[SpeedyFiles](
