@@ -1,3 +1,28 @@
+sp_rename SpeedyFiles, SpeedyFilesBK;
+
+CREATE TABLE [dbo].[SpeedyFiles](
+	[SFID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[NomeArquivo] [nvarchar](50) NULL,
+	[DownloadTime] [datetime] NULL,
+	[DownloadStatus] [nvarchar](300) NULL,
+	[FTPStatus] [nvarchar](300) NULL,
+	[ProcessingStatus] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+insert into SpeedyFiles
+(NomeArquivo,DownloadTime,DownloadStatus,FTPStatus,ProcessingStatus)
+select
+NomeArquivo,DownloadTime,DownloadStatus,FTPStatus,ProcessingStatus
+from SpeedyFilesBK;
+GO
+select count(*) from SpeedyFiles;
+GO
+select count(*) from SpeedyFilesBK;
+GO
+
+
+
 sp_rename BBBLog, BBBLogBK;
 
 CREATE TABLE [dbo].[BBBLog](
