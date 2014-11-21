@@ -1,3 +1,34 @@
+sp_rename BBBLog, BBBLogBK;
+
+CREATE TABLE [dbo].[BBBLog](
+	[BBBID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[DataPost] [datetime] NULL,
+	[CustomerID] [nvarchar](50) NULL,
+	[OrderID] [nvarchar](50) NULL,
+	[Email] [nvarchar](150) NULL,
+	[Request] [nvarchar](50) NULL,
+	[Status] [nvarchar](50) NULL,
+	[Mensagem] [nvarchar](1000) NULL,
+	[PromoBBB] [char](10) NULL,
+	[ExisteBBB] [char](10) NULL,
+	[McREF] [nvarchar](50) NULL,
+	[BBBNSRef] [nvarchar](50) NULL
+) ON [PRIMARY]
+
+GO
+insert into BBBLog
+(DataPost,CustomerID,OrderID,Email,Request,Status,Mensagem,PromoBBB,ExisteBBB,McREF,BBBNSRef)
+select
+DataPost,CustomerID,OrderID,Email,Request,Status,Mensagem,PromoBBB,ExisteBBB,McREF,BBBNSRef
+from BBBLogBK;
+GO
+select count(*) from BBBLog;
+GO
+select count(*) from BBBLogBK;
+GO
+
+
+
 USE [netsafe_com]
 GO
 
