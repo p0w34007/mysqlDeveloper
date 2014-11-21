@@ -1,6 +1,43 @@
 USE [netsafe_com]
 GO
 
+/****** Object:  View [dbo].[Net_Fortaleza]    Script Date: 21/11/2014 17:38:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[Net_Fortaleza]
+AS
+SELECT     TOP 100 PERCENT dbo.Customers.SubPartnerID, dbo.Orders.McafeeOrderID, dbo.Customers.Email, dbo.Customers.CustomerID, 
+                      dbo.Orders.PartnerOrderID, dbo.Orders.RequestType, dbo.Products.ProductName, dbo.Orders.OrderDate, dbo.Orders.OrderEnd, 
+                      dbo.OrderItem.ProductID, dbo.Products.Offer, dbo.Orders.Status, dbo.Orders.NetSafeOrderID, dbo.Orders.StatusMcafee, dbo.Customers.FirstName, 
+                      dbo.Customers.LastName
+FROM         dbo.Customers INNER JOIN
+                      dbo.Orders INNER JOIN
+                      dbo.OrderItem ON dbo.Orders.NetSafeOrderID = dbo.OrderItem.OrderID AND dbo.Orders.SubPartnerID = dbo.OrderItem.SubPartnerID INNER JOIN
+                      dbo.Products ON dbo.OrderItem.ProductID = dbo.Products.SKU ON dbo.Customers.SubPartnerID = dbo.Orders.SubPartnerID AND 
+                      dbo.Customers.CustomerID = dbo.Orders.CustomerID
+GROUP BY dbo.Customers.SubPartnerID, dbo.Customers.Email, dbo.Customers.CustomerID, dbo.Orders.RequestType, dbo.Products.ProductName, 
+                      dbo.Orders.OrderDate, dbo.Orders.OrderEnd, dbo.OrderItem.ProductID, dbo.Products.Offer, dbo.Orders.Status, dbo.Orders.NetSafeOrderID, 
+                      dbo.Orders.StatusMcafee, dbo.Orders.McafeeOrderID, dbo.Orders.PartnerOrderID, dbo.Customers.FirstName, dbo.Customers.LastName
+HAVING      (dbo.Orders.Status = N'released' OR
+                      dbo.Orders.Status = N'warning') AND (dbo.Orders.StatusMcafee LIKE N'%0000%' OR
+                      dbo.Orders.StatusMcafee LIKE N'%1000%' OR
+                      dbo.Orders.StatusMcafee LIKE N'%500%' AND NOT (dbo.Orders.StatusMcafee LIKE N'%malformed%')) AND (dbo.Orders.RequestType = N'new') AND 
+                      (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr32') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
+ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
+                      dbo.Orders.OrderDate
+
+GO
+
+
+
+
+USE [netsafe_com]
+GO
+
 /****** Object:  View [dbo].[Levantamento_Geral_Analitico]    Script Date: 21/11/2014 17:36:52 ******/
 SET ANSI_NULLS ON
 GO
