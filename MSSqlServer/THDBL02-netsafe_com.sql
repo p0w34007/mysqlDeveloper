@@ -1,6 +1,13 @@
 USE [netsafe_com]
 GO
 
+/***************************************************************************************
+*É altamente recomendavel rodar as criacoes de funcoes e sp individualmente e nao      *
+*junto com as views e create tables                                                    *
+****************************************************************************************/
+
+
+
 /****** Object:  View [dbo].[Xpress - netcp98]    Script Date: 21/11/2014 17:50:11 ******/
 SET ANSI_NULLS ON
 GO
