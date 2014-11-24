@@ -20,9 +20,7 @@ WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.OrderDate < { fn NOW
                       (dbo.Orders.StatusMcafee LIKE N'%success%') AND (dbo.Orders.SubPartnerID = N'netcp98') AND (dbo.Orders.Status = N'released' OR
                       dbo.Orders.Status = N'warning')
 ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
-
 GO
-
 
 /****** Object:  View [dbo].[WebLog_View]    Script Date: 21/11/2014 17:49:33 ******/
 SET ANSI_NULLS ON
@@ -36,10 +34,6 @@ AS
 SELECT     LOGID, DataPost, ConfirmationNumber, CustomerID, OrderID, Email, Request, Status, Mensagem, McREF
 FROM         dbo.WebLog
 WHERE     (DataPost > CONVERT(DATETIME, '2009-10-01 00:00:00', 102)) AND (Status = N'FAIL') AND (ConfirmationNumber LIKE N'netbr35%')
-
-GO
-
-
 GO
 
 /****** Object:  View [dbo].[UOL-CP]    Script Date: 21/11/2014 17:48:54 ******/
@@ -61,11 +55,6 @@ WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.OrderDate < { fn NOW
                       (dbo.Orders.StatusMcafee LIKE N'%success%') AND (dbo.Orders.SubPartnerID = N'NETCP10') AND (dbo.Orders.Status = N'released' OR
                       dbo.Orders.Status = N'warning')
 ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
-
-GO
-
-
-
 GO
 
 /****** Object:  View [dbo].[UAI - NETBR03]    Script Date: 21/11/2014 17:48:06 ******/
@@ -96,12 +85,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr03') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Total_Geral_Ativos]    Script Date: 21/11/2014 17:47:24 ******/
@@ -127,7 +110,6 @@ WHERE     (dbo.Orders.Status = N'released' OR
 GROUP BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType, dbo.Products.ProductName
 HAVING      (dbo.Orders.RequestType = N'new')
 ORDER BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType
-
 GO
 
 /****** Object:  View [dbo].[Totais_Tipo-BR]    Script Date: 21/11/2014 17:46:15 ******/
@@ -152,8 +134,6 @@ WHERE     (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Orders.Status = N'relea
 GROUP BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType
 HAVING      (dbo.Orders.RequestType = N'new')
 ORDER BY dbo.Customers.SubPartnerID
-
-GO
 GO
 
 /****** Object:  View [dbo].[Totais_Diversos]    Script Date: 21/11/2014 17:45:33 ******/
@@ -178,7 +158,6 @@ WHERE     (dbo.Orders.Status = N'released' OR
 GROUP BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType, dbo.Products.ProductName
 HAVING      (dbo.Customers.SubPartnerID = N'netla03') AND (dbo.Orders.RequestType = N'cancel')
 ORDER BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType
-
 GO
 
 /****** Object:  View [dbo].[telmex-netla03]    Script Date: 21/11/2014 17:44:44 ******/
@@ -209,15 +188,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netla03') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-
-GO
-
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Telefonica_Neg-BR]    Script Date: 21/11/2014 17:43:03 ******/
@@ -246,7 +216,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       dbo.Orders.StatusMcafee LIKE N'%500%' AND NOT (dbo.Orders.StatusMcafee LIKE N'%malformed%')) AND (dbo.Orders.RequestType = N'new') AND 
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr30') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, dbo.Orders.OrderDate
-
 GO
 
 /****** Object:  View [dbo].[Telefonica_Neg-BR]    Script Date: 21/11/2014 17:43:03 ******/
@@ -275,7 +244,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       dbo.Orders.StatusMcafee LIKE N'%500%' AND NOT (dbo.Orders.StatusMcafee LIKE N'%malformed%')) AND (dbo.Orders.RequestType = N'new') AND 
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr30') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, dbo.Orders.OrderDate
-
 GO
 
 /****** Object:  View [dbo].[speedynanny todos]    Script Date: 21/11/2014 17:42:18 ******/
@@ -306,15 +274,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr24') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Somente_Ordens]    Script Date: 21/11/2014 17:41:39 ******/
@@ -331,7 +290,6 @@ FROM         dbo.Orders
 WHERE     (SubPartnerID = N'netla03') AND (Status = N'released' OR
                       Status = N'warning') AND (StatusMcafee LIKE N'%1000%' OR
                       StatusMcafee LIKE N'%500%')
-
 GO
 
 /****** Object:  View [dbo].[Orders_BR]    Script Date: 21/11/2014 17:40:54 ******/
@@ -356,7 +314,6 @@ WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.Status = N'released'
                       dbo.Orders.OrderEnd > dbo.Filtro_BR_Mauricio.Fil_Data_Cancel) AND (dbo.Orders.StatusMcafee LIKE N'%1000%' OR
                       dbo.Orders.StatusMcafee LIKE N'%5001%') AND (dbo.Products.Offer <> N'30 Day Free Trial')
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Orders.PartnerOrderID, dbo.Orders.OrderDate
-
 GO
 
 /****** Object:  View [dbo].[NETCP99-xpress]    Script Date: 21/11/2014 17:39:59 ******/
@@ -378,12 +335,6 @@ WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.OrderDate < { fn NOW
                       (dbo.Orders.StatusMcafee LIKE N'%success%') AND (dbo.Orders.SubPartnerID = N'netcp98') AND (dbo.Orders.Status = N'released' OR
                       dbo.Orders.Status = N'warning')
 ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
-
-GO
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Net_Fortaleza]    Script Date: 21/11/2014 17:38:42 ******/
@@ -414,13 +365,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr32') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Levantamento_Geral_Analitico]    Script Date: 21/11/2014 17:36:52 ******/
@@ -482,14 +426,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr34') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Globo - netbr05 - todos new]    Script Date: 21/11/2014 17:22:24 ******/
@@ -520,15 +456,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr05') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Geral-CP]    Script Date: 21/11/2014 17:21:26 ******/
@@ -551,7 +478,6 @@ WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.OrderDate < CONVERT(
                       dbo.Orders.SubPartnerID LIKE N'pscp%') AND (dbo.Orders.Status = N'released' OR
                       dbo.Orders.Status = N'warning')
 ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
-
 GO
 
 /****** Object:  View [dbo].[Geral-BR]    Script Date: 21/11/2014 17:20:41 ******/
@@ -581,7 +507,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < CONVERT(DATETIME, '2010-08-01 00:00:00', 102)) AND (dbo.Customers.SubPartnerID = N'netbr99' OR
                       dbo.Customers.SubPartnerID = N'psbr99') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, dbo.Orders.OrderDate
-
 GO
 
 /****** Object:  View [dbo].[Geral_Novo_BR]    Script Date: 21/11/2014 17:19:59 ******/
@@ -598,7 +523,6 @@ SELECT     dbo.Orders_BR.SubPartnerID, dbo.Orders_BR.McafeeOrderID, dbo.Customer
                       dbo.Orders_BR.StatusMcafee, dbo.Orders_BR.Status, dbo.Orders_BR.Offer
 FROM         dbo.Orders_BR LEFT OUTER JOIN
                       dbo.Customers ON dbo.Orders_BR.CustomerID = dbo.Customers.CustomerID AND dbo.Orders_BR.SubPartnerID = dbo.Customers.SubPartnerID
-
 GO
 
 /****** Object:  View [dbo].[Geral_Grupo_iG_Oi]    Script Date: 21/11/2014 17:18:50 ******/
@@ -636,9 +560,6 @@ CREATE VIEW [dbo].[Filtrar_Parceiro]
 AS
 SELECT     dbo.Filtro_BR_Mauricio.*
 FROM         dbo.Filtro_BR_Mauricio
-
-GO
-
 GO
 
 /****** Object:  View [dbo].[Contar_Ordens]    Script Date: 21/11/2014 17:16:13 ******/
@@ -684,7 +605,6 @@ HAVING      (SubPartnerID = N'netbr17' OR
                       SubPartnerID = N'netbr35' OR
                       SubPartnerID = N'psbr99' OR
                       SubPartnerID = N'netbr99')
-
 GO
 
 /****** Object:  View [dbo].[Brasoftware - netbr41]    Script Date: 21/11/2014 17:10:12 ******/
@@ -715,12 +635,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr41') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Ativos-NETBR24-TFN]    Script Date: 21/11/2014 17:09:31 ******/
@@ -751,14 +665,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr24') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Ativos_IG_NETBR23]    Script Date: 21/11/2014 17:08:28 ******/
@@ -790,13 +696,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr23') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Ativos_IG_NETBR22]    Script Date: 21/11/2014 17:07:42 ******/
@@ -828,14 +727,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr22') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[Ativos_IG_NETBR17]    Script Date: 21/11/2014 17:07:01 ******/
@@ -867,13 +758,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr17') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-GO
-
-
-
-
-
 GO
 
 /****** Object:  View [dbo].[_Total_New_Trial_Cancel]    Script Date: 21/11/2014 17:06:16 ******/
@@ -926,7 +810,6 @@ HAVING      (dbo.Orders.RequestType = N'new') AND (dbo.Customers.SubPartnerID = 
                       dbo.Customers.SubPartnerID = N'netbr33' OR
                       dbo.Customers.SubPartnerID = N'netbr35')
 ORDER BY dbo.Orders.RequestType
-
 GO
 
 /****** Object:  View [dbo].[_Total_Churn]    Script Date: 21/11/2014 16:57:16 ******/
@@ -1007,10 +890,10 @@ HAVING      (dbo.Orders.RequestType = N'cancel') AND (dbo.Customers.SubPartnerID
                       dbo.Customers.SubPartnerID = N'netbr22' OR
                       dbo.Customers.SubPartnerID = N'netbr23')
 ORDER BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType
-
-
+GO
 
 sp_rename weblog, weblogBK;
+GO
 
 CREATE TABLE [dbo].[weblog](
 	[LOGID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
@@ -1028,21 +911,23 @@ CREATE TABLE [dbo].[weblog](
 	[XMLRec] [varchar](2000) NULL,
 	[XMLOut] [varchar](1000) NULL
 ) ON [PRIMARY]
-
 GO
+
 insert into weblog
 (DataPost,ConfirmationNumber,CustomerID,OrderID,Email,Request,Status,Mensagem,McREF,XMLIn,XMLSend,XMLRec,XMLOut)
 select
 DataPost,ConfirmationNumber,CustomerID,OrderID,Email,Request,Status,Mensagem,McREF,XMLIn,XMLSend,XMLRec,XMLOut
 from weblogBK;
 GO
+
 select count(*) from weblog;
 GO
+
 select count(*) from weblogBK;
 GO
 
-
 sp_rename SpeedyOrders, SpeedyOrdersBK;
+GO
 
 CREATE TABLE [dbo].[SpeedyOrders](
 	[SOID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
@@ -1063,21 +948,23 @@ CREATE TABLE [dbo].[SpeedyOrders](
 	[StatusTransacao] [nvarchar](50) NULL,
 	[DataTransacao] [datetime] NULL
 ) ON [PRIMARY]
-
 GO
+
 insert into SpeedyOrders
 (Arquivo,DataLeitura,RCUSTOMERID,RNETSAFEREF,RPARTNERREF,SKU,RFIRSTNAME,RLASTNAME,Email,Senha,Operacao,StatusOperacao,DataOperacao,Transacao,StatusTransacao,DataTransacao)
 select
 Arquivo,DataLeitura,RCUSTOMERID,RNETSAFEREF,RPARTNERREF,SKU,RFIRSTNAME,RLASTNAME,Email,Senha,Operacao,StatusOperacao,DataOperacao,Transacao,StatusTransacao,DataTransacao
 from SpeedyOrdersBK;
 GO
+
 select count(*) from SpeedyOrders;
 GO
+
 select count(*) from SpeedyOrdersBK;
 GO
 
-
 sp_rename SpeedyFiles, SpeedyFilesBK;
+GO
 
 CREATE TABLE [dbo].[SpeedyFiles](
 	[SFID] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
@@ -1087,22 +974,23 @@ CREATE TABLE [dbo].[SpeedyFiles](
 	[FTPStatus] [nvarchar](300) NULL,
 	[ProcessingStatus] [nvarchar](50) NULL
 ) ON [PRIMARY]
-
 GO
+
 insert into SpeedyFiles
 (NomeArquivo,DownloadTime,DownloadStatus,FTPStatus,ProcessingStatus)
 select
 NomeArquivo,DownloadTime,DownloadStatus,FTPStatus,ProcessingStatus
 from SpeedyFilesBK;
 GO
+
 select count(*) from SpeedyFiles;
 GO
+
 select count(*) from SpeedyFilesBK;
 GO
 
-
-
 sp_rename BBBLog, BBBLogBK;
+GO
 
 CREATE TABLE [dbo].[BBBLog](
 	[BBBID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
@@ -1118,22 +1006,19 @@ CREATE TABLE [dbo].[BBBLog](
 	[McREF] [nvarchar](50) NULL,
 	[BBBNSRef] [nvarchar](50) NULL
 ) ON [PRIMARY]
-
 GO
+
 insert into BBBLog
 (DataPost,CustomerID,OrderID,Email,Request,Status,Mensagem,PromoBBB,ExisteBBB,McREF,BBBNSRef)
 select
 DataPost,CustomerID,OrderID,Email,Request,Status,Mensagem,PromoBBB,ExisteBBB,McREF,BBBNSRef
 from BBBLogBK;
 GO
+
 select count(*) from BBBLog;
 GO
+
 select count(*) from BBBLogBK;
-GO
-
-
-
-
 GO
 
 /****** Object:  Index [logid]    Script Date: 21/11/2014 16:23:28 ******/
@@ -1143,22 +1028,11 @@ CREATE NONCLUSTERED INDEX [logid] ON [dbo].[weblog]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-
-
-USE [netsafe_com]
-GO
-
 /****** Object:  Index [datapost]    Script Date: 21/11/2014 16:22:44 ******/
 CREATE NONCLUSTERED INDEX [datapost] ON [dbo].[weblog]
 (
 	[DataPost] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-
-
-
-
-
 GO
 
 /****** Object:  Index [ativacoes]    Script Date: 21/11/2014 16:20:52 ******/
@@ -1169,22 +1043,11 @@ CREATE NONCLUSTERED INDEX [ativacoes] ON [dbo].[weblog]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-
-
-GO
-
 /****** Object:  Index [confirmation]    Script Date: 21/11/2014 16:21:46 ******/
 CREATE NONCLUSTERED INDEX [confirmation] ON [dbo].[weblog]
 (
 	[ConfirmationNumber] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-
-
-
-
-
-
 GO
 
 /****** Object:  Index [CustomerID]    Script Date: 13/11/2014 21:03:17 ******/
@@ -1194,18 +1057,11 @@ CREATE NONCLUSTERED INDEX [CustomerID] ON [dbo].[Customers]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-
-GO
-
 /****** Object:  Index [McafeeOrderID]    Script Date: 21/11/2014 16:18:15 ******/
 CREATE NONCLUSTERED INDEX [McafeeOrderID] ON [dbo].[Orders]
 (
 	[McafeeOrderID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-
-
-
 GO
 
 /****** Object:  Index [NetSafeOrderID]    Script Date: 21/11/2014 16:18:45 ******/
@@ -1215,10 +1071,6 @@ CREATE NONCLUSTERED INDEX [NetSafeOrderID] ON [dbo].[Orders]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-
-
-GO
-
 /****** Object:  Index [OrderDate]    Script Date: 21/11/2014 16:19:07 ******/
 CREATE NONCLUSTERED INDEX [OrderDate] ON [dbo].[Orders]
 (
@@ -1226,16 +1078,12 @@ CREATE NONCLUSTERED INDEX [OrderDate] ON [dbo].[Orders]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-
-
-
 /****** Object:  Index [Email]    Script Date: 13/11/2014 21:04:07 ******/
 CREATE NONCLUSTERED INDEX [Email] ON [dbo].[Customers]
 (
 	[Email] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-
 
 /****** Object:  Index [SubPartnerID]    Script Date: 13/11/2014 21:04:41 ******/
 CREATE NONCLUSTERED INDEX [SubPartnerID] ON [dbo].[Customers]
@@ -1251,8 +1099,6 @@ CREATE NONCLUSTERED INDEX [SubPartnerID+PartnerCustomerID] ON [dbo].[Customers]
 	[PartnerCustomerID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-
-
 
 /****** Object:  Index [CustomerID]    Script Date: 13/11/2014 21:07:02 ******/
 CREATE NONCLUSTERED INDEX [CustomerID] ON [dbo].[OrderItem]
@@ -1275,7 +1121,6 @@ CREATE NONCLUSTERED INDEX [OrderID] ON [dbo].[OrderItem]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-
 /****** Object:  Index [PartnerOrderID]    Script Date: 13/11/2014 21:07:43 ******/
 CREATE NONCLUSTERED INDEX [PartnerOrderID] ON [dbo].[OrderItem]
 (
@@ -1297,7 +1142,6 @@ CREATE NONCLUSTERED INDEX [PartnerOrderID] ON [dbo].[Orders]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-
 /****** Object:  Index [SubPartnerID]    Script Date: 13/11/2014 21:08:48 ******/
 CREATE NONCLUSTERED INDEX [SubPartnerID] ON [dbo].[Orders]
 (
@@ -1312,7 +1156,6 @@ CREATE NONCLUSTERED INDEX [SubPartnerID+OrderDate] ON [dbo].[Orders]
 	[OrderDate] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
-
 
 /****** Object:  View [dbo].[TELEFONICA NEG - NETBR30]    Script Date: 13/11/2014 21:10:55 ******/
 SET ANSI_NULLS ON
@@ -1342,10 +1185,7 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr30') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
-
 GO
-
 
 /****** Object:  View [dbo].[TELEFONICA NEG - NETCP21]    Script Date: 13/11/2014 21:11:13 ******/
 SET ANSI_NULLS ON
@@ -1366,10 +1206,7 @@ WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.OrderDate < { fn NOW
                       (dbo.Orders.StatusMcafee LIKE N'%success%') AND (dbo.Orders.SubPartnerID = N'netcp21') AND (dbo.Orders.Status = N'released' OR
                       dbo.Orders.Status = N'warning')
 ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
-
-
 GO
-
 
 /****** Object:  View [dbo].[Totais_Diversos]    Script Date: 13/11/2014 21:11:32 ******/
 SET ANSI_NULLS ON
@@ -1394,10 +1231,7 @@ WHERE     (dbo.Orders.Status = N'released' OR
 GROUP BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType, dbo.Products.ProductName
 HAVING      (dbo.Customers.SubPartnerID = N'netla03') AND (dbo.Orders.RequestType = N'cancel')
 ORDER BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType
-
-
 GO
-
 
 /****** Object:  View [dbo].[Totais_Tipo-BR]    Script Date: 13/11/2014 21:11:50 ******/
 SET ANSI_NULLS ON
@@ -1422,10 +1256,7 @@ WHERE     (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Orders.Status = N'relea
 GROUP BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType
 HAVING      (dbo.Orders.RequestType = N'new')
 ORDER BY dbo.Customers.SubPartnerID
-
-
 GO
-
 
 /****** Object:  View [dbo].[Total_Geral_Ativos]    Script Date: 13/11/2014 21:12:05 ******/
 SET ANSI_NULLS ON
@@ -1451,10 +1282,7 @@ WHERE     (dbo.Orders.Status = N'released' OR
 GROUP BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType, dbo.Products.ProductName
 HAVING      (dbo.Orders.RequestType = N'new')
 ORDER BY dbo.Customers.SubPartnerID, dbo.Orders.RequestType
-
-
 GO
-
 
 /****** Object:  View [dbo].[UAI - NETBR03]    Script Date: 13/11/2014 21:12:23 ******/
 SET ANSI_NULLS ON
@@ -1484,7 +1312,6 @@ HAVING      (dbo.Orders.Status = N'released' OR
                       (dbo.Orders.OrderDate < { fn NOW() }) AND (dbo.Customers.SubPartnerID = N'netbr03') AND (dbo.Orders.OrderEnd = dbo.Orders.OrderDate)
 ORDER BY dbo.Orders.McafeeOrderID, dbo.Orders.RequestType DESC, dbo.Customers.CustomerID, dbo.Orders.PartnerOrderID, dbo.OrderItem.ProductID, 
                       dbo.Orders.OrderDate
-
 GO
 
 /****** Object:  View [dbo].[UOL - NETCP10]    Script Date: 13/11/2014 21:12:36 ******/
@@ -1506,8 +1333,6 @@ WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.OrderDate < { fn NOW
                       (dbo.Orders.StatusMcafee LIKE N'%success%') AND (dbo.Orders.SubPartnerID = N'NETCP10') AND (dbo.Orders.Status = N'released' OR
                       dbo.Orders.Status = N'warning')
 ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
-
-
 GO
 
 /****** Object:  View [dbo].[WebLogView]    Script Date: 13/11/2014 21:12:51 ******/
@@ -1522,7 +1347,6 @@ AS
 SELECT     LOGID, DataPost, ConfirmationNumber, CustomerID, OrderID, Email, Request, Status, Mensagem, McREF
 FROM         dbo.WebLog
 WHERE     (DataPost > CONVERT(DATETIME, '2009-10-01 00:00:00', 102)) AND (Status = N'FAIL') AND (ConfirmationNumber LIKE N'netbr35%')
-
 GO
 
 /****** Object:  View [dbo].[XPRESS - NETCP98]    Script Date: 13/11/2014 21:13:05 ******/
@@ -1544,7 +1368,6 @@ WHERE     (dbo.Orders.RequestType = N'new') AND (dbo.Orders.OrderDate < { fn NOW
                       (dbo.Orders.StatusMcafee LIKE N'%success%') AND (dbo.Orders.SubPartnerID = N'netcp98') AND (dbo.Orders.Status = N'released' OR
                       dbo.Orders.Status = N'warning')
 ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
-
 GO
 
 /****** Object:  DdlTrigger [rds_deny_backups_trigger]    Script Date: 13/11/2014 21:13:51 ******/
@@ -1587,22 +1410,13 @@ CREATE TRIGGER [rds_deny_backups_trigger] ON DATABASE WITH EXECUTE AS 'dbo' FOR
          RAISERROR('Cannot grant backup database or backup log', 15, 1) WITH LOG;       
    END
 END
-
-
 GO
 
 ENABLE TRIGGER [rds_deny_backups_trigger] ON DATABASE
-
-
-
+GO
 
 /* ######################################################################################################################## */
-
 --CREATE STORE PROCEDURE
-
-
-GO
-
 /****** Object:  StoredProcedure [dbo].[dt_addtosourcecontrol]    Script Date: 11/21/2014 14:40:10 ******/
 SET ANSI_NULLS ON
 GO
@@ -1696,13 +1510,6 @@ E_General_Error:
 E_OAError:
     exec dbo.dt_displayoaerror @iObjectId, @iReturn
     goto CleanUp
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_addtosourcecontrol_u]    Script Date: 11/21/2014 14:40:29 ******/
@@ -1729,13 +1536,6 @@ as
 		@vchComment, 
 		@vchLoginName, 
 		@vchPassword
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_adduserobject]    Script Date: 11/21/2014 14:41:58 ******/
@@ -1760,11 +1560,6 @@ as
 			where id=@@identity and property='DtgSchemaOBJECT'
 	commit
 	return @@identity
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_adduserobject_vcs]    Script Date: 11/21/2014 14:42:14 ******/
@@ -1796,13 +1591,6 @@ declare @iReturn int
         end
     commit
     return @iReturn
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkinobject]    Script Date: 11/21/2014 14:42:41 ******/
@@ -1992,13 +1780,6 @@ E_OAError:
 	if @iActionFlag = 1 rollback tran compile_all
 	exec dbo.dt_displayoaerror @iObjectId, @iReturn
 	goto CleanUp
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkinobject_u]    Script Date: 11/21/2014 14:42:56 ******/
@@ -2035,13 +1816,6 @@ as
 		@txStream1,		
 		@txStream2,		
 		@txStream3		
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkoutobject]    Script Date: 11/21/2014 14:43:13 ******/
@@ -2146,13 +1920,6 @@ CleanUp:
 E_OAError:
     exec dbo.dt_displayoaerror @iObjectId, @iReturn
     GOTO CleanUp
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkoutobject_u]    Script Date: 11/21/2014 14:43:25 ******/
@@ -2184,13 +1951,6 @@ as
 		@vchPassword,  
 		@iVCSFlags,    
 		@iActionFlag 
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_displayoaerror]    Script Date: 11/21/2014 14:43:39 ******/
@@ -2218,12 +1978,6 @@ declare @vchDescription varchar(255)
     raiserror (@vchOutput,16,-1)
 
     return
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_displayoaerror_u]    Script Date: 11/21/2014 14:47:35 ******/
@@ -2243,13 +1997,6 @@ as
 	exec dbo.dt_displayoaerror
 		@iObject,
 		@iresult
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_droppropertiesbyid]    Script Date: 11/21/2014 14:47:51 ******/
@@ -2276,12 +2023,6 @@ as
 	else
 		delete from dbo.dtproperties 
 			where objectid=@id and property=@property
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_dropuserobjectbyid]    Script Date: 11/21/2014 14:48:23 ******/
@@ -2299,11 +2040,6 @@ create procedure [dbo].[dt_dropuserobjectbyid]
 as
 	set nocount on
 	delete from dbo.dtproperties where objectid=@id
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_generateansiname]    Script Date: 11/21/2014 14:48:38 ******/
@@ -2346,12 +2082,6 @@ TooMany:
  
 	set @name = 'DIAGRAM' 
 	goto Leave 
-
-GO
-
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_addtosourcecontrol]    Script Date: 11/21/2014 14:40:10 ******/
@@ -2447,13 +2177,6 @@ E_General_Error:
 E_OAError:
     exec dbo.dt_displayoaerror @iObjectId, @iReturn
     goto CleanUp
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_addtosourcecontrol_u]    Script Date: 11/21/2014 14:40:29 ******/
@@ -2480,13 +2203,6 @@ as
 		@vchComment, 
 		@vchLoginName, 
 		@vchPassword
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_adduserobject]    Script Date: 11/21/2014 14:41:58 ******/
@@ -2511,11 +2227,6 @@ as
 			where id=@@identity and property='DtgSchemaOBJECT'
 	commit
 	return @@identity
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_adduserobject_vcs]    Script Date: 11/21/2014 14:42:14 ******/
@@ -2547,13 +2258,6 @@ declare @iReturn int
         end
     commit
     return @iReturn
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkinobject]    Script Date: 11/21/2014 14:42:41 ******/
@@ -2743,13 +2447,6 @@ E_OAError:
 	if @iActionFlag = 1 rollback tran compile_all
 	exec dbo.dt_displayoaerror @iObjectId, @iReturn
 	goto CleanUp
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkinobject_u]    Script Date: 11/21/2014 14:42:56 ******/
@@ -2786,13 +2483,6 @@ as
 		@txStream1,		
 		@txStream2,		
 		@txStream3		
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkoutobject]    Script Date: 11/21/2014 14:43:13 ******/
@@ -2897,13 +2587,6 @@ CleanUp:
 E_OAError:
     exec dbo.dt_displayoaerror @iObjectId, @iReturn
     GOTO CleanUp
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkoutobject_u]    Script Date: 11/21/2014 14:43:25 ******/
@@ -2935,13 +2618,6 @@ as
 		@vchPassword,  
 		@iVCSFlags,    
 		@iActionFlag 
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_displayoaerror]    Script Date: 11/21/2014 14:43:39 ******/
@@ -2969,12 +2645,6 @@ declare @vchDescription varchar(255)
     raiserror (@vchOutput,16,-1)
 
     return
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_displayoaerror_u]    Script Date: 11/21/2014 14:47:35 ******/
@@ -2994,13 +2664,6 @@ as
 	exec dbo.dt_displayoaerror
 		@iObject,
 		@iresult
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_droppropertiesbyid]    Script Date: 11/21/2014 14:47:51 ******/
@@ -3027,12 +2690,6 @@ as
 	else
 		delete from dbo.dtproperties 
 			where objectid=@id and property=@property
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_dropuserobjectbyid]    Script Date: 11/21/2014 14:48:23 ******/
@@ -3050,11 +2707,6 @@ create procedure [dbo].[dt_dropuserobjectbyid]
 as
 	set nocount on
 	delete from dbo.dtproperties where objectid=@id
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_generateansiname]    Script Date: 11/21/2014 14:48:38 ******/
@@ -3097,12 +2749,6 @@ TooMany:
  
 	set @name = 'DIAGRAM' 
 	goto Leave 
-
-GO
-
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getobjwithprop_u]    Script Date: 11/21/2014 14:52:42 ******/
@@ -3134,11 +2780,6 @@ as
 	else
 		select objectid id from dbo.dtproperties
 			where property=@property and uvalue=@uvalue
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getpropertiesbyid]    Script Date: 11/21/2014 14:56:00 ******/
@@ -3168,11 +2809,6 @@ as
 		select property, version, value, lvalue
 			from dbo.dtproperties
 			where  @id=objectid and @property=property
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getpropertiesbyid_u]    Script Date: 11/21/2014 14:56:15 ******/
@@ -3202,11 +2838,6 @@ as
 		select property, version, uvalue, lvalue
 			from dbo.dtproperties
 			where  @id=objectid and @property=property
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getpropertiesbyid_vcs]    Script Date: 11/21/2014 14:56:41 ******/
@@ -3230,12 +2861,6 @@ as
                 from dbo.dtproperties
                 where @id=objectid and @property=property
                 )
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getpropertiesbyid_vcs_u]    Script Date: 11/21/2014 14:57:03 ******/
@@ -3259,12 +2884,6 @@ as
 		@id,
 		@property,
 		@value output
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_isundersourcecontrol]    Script Date: 11/21/2014 14:57:20 ******/
@@ -3365,13 +2984,6 @@ CleanUp:
 E_OAError:
     exec dbo.dt_displayoaerror @iObjectId, @iReturn
     goto CleanUp
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_isundersourcecontrol_u]    Script Date: 11/21/2014 15:01:47 ******/
@@ -3394,13 +3006,6 @@ as
 		@vchLoginName,
 		@vchPassword,
 		@iWhoToo 
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_removefromsourcecontrol]    Script Date: 11/21/2014 15:02:17 ******/
@@ -3425,13 +3030,6 @@ as
     if @@error <> 0 and @@error <> -1 return 1
 
     return 0
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_setpropertybyid]    Script Date: 11/21/2014 15:02:33 ******/
@@ -3474,12 +3072,6 @@ as
 		insert dbo.dtproperties (property, objectid, value, uvalue, lvalue)
 			values (@property, @id, @value, @uvalue, @lvalue)
 	end
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_setpropertybyid_u]    Script Date: 11/21/2014 15:02:54 ******/
@@ -3540,11 +3132,6 @@ as
 		insert dbo.dtproperties (property, objectid, value, uvalue, lvalue)
 			values (@property, @id, @avalue, @uvalue, @lvalue)
 	end
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_validateloginparams]    Script Date: 11/21/2014 15:03:19 ******/
@@ -3591,12 +3178,6 @@ CleanUp:
 E_OAError:
     exec dbo.dt_displayoaerror @iObjectId, @iReturn
     GOTO CleanUp
-
-
-
-GO
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_validateloginparams_u]    Script Date: 11/21/2014 15:03:37 ******/
@@ -3617,13 +3198,6 @@ as
 	exec dbo.dt_validateloginparams
 		@vchLoginName,
 		@vchPassword 
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_vcsenabled]    Script Date: 11/21/2014 15:03:53 ******/
@@ -3648,13 +3222,6 @@ select @VSSGUID = 'SQLVersionControl.VCS_SQL'
     declare @iReturn int
     exec @iReturn = master.dbo.sp_OACreate @VSSGUID, @iObjectId OUT
     if @iReturn <> 0 raiserror('', 16, -1) /* Can't Load Helper DLLC */
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_verstamp006]    Script Date: 11/21/2014 15:04:09 ******/
@@ -3672,11 +3239,6 @@ GO
 create procedure [dbo].[dt_verstamp006]
 as
 	select 7000
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_verstamp007]    Script Date: 11/21/2014 15:04:25 ******/
@@ -3694,11 +3256,6 @@ GO
 create procedure [dbo].[dt_verstamp007]
 as
 	select 7005
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_whocheckedout]    Script Date: 11/21/2014 15:04:38 ******/
@@ -3770,13 +3327,6 @@ CleanUp:
 E_OAError:
     exec dbo.dt_displayoaerror @iObjectId, @iReturn
     GOTO CleanUp
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_whocheckedout_u]    Script Date: 11/21/2014 15:04:55 ******/
@@ -3802,13 +3352,6 @@ as
 		@vchObjectName,
 		@vchLoginName, 
 		@vchPassword  
-
-
-
-GO
-
-
-
 GO
 
 /****** Object:  StoredProcedure [dbo].[sp_FechamentoXL]    Script Date: 11/21/2014 15:05:08 ******/
@@ -3817,7 +3360,6 @@ GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-
 
 -- Batch submitted through debugger: SQLQuery2.sql|0|0|D:\Users\rafael.santos\AppData\Local\Temp\~vsBA3B.sql
 CREATE PROCEDURE [dbo].[sp_FechamentoXL]
@@ -3975,31 +3517,25 @@ BEGIN
 	GROUP BY #tmpOrders.SubPartnerID, #tmpOrders.SKU
 
 END
+GO
 
 SELECT * FROM #tmpFechamentoXL
+GO
 
 --Apaga o arquivo XML
 --EXEC sp_xml_removedocument @idoc
-
 -- Apaga as tabelas temporárias
 DROP TABLE #tmpFechamentoXL
-DROP TABLE #tmpOrders
-
-
 GO
 
-
+DROP TABLE #tmpOrders
+GO
 
 
 -- CREATE FUNCTION
-
-
-GO
-
 /****** Object:  UserDefinedFunction [dbo].[iter_charlist_to_table]    Script Date: 11/21/2014 15:05:56 ******/
 SET QUOTED_IDENTIFIER ON
 GO
-
 
 CREATE  FUNCTION [dbo].[iter_charlist_to_table]
                  (@list      ntext,
@@ -4041,9 +3577,6 @@ BEGIN
        VALUES (ltrim(rtrim(@leftover)), ltrim(rtrim(@leftover)))
    RETURN
 END
-
-
-
 GO
 
 
