@@ -24,10 +24,6 @@ ORDER BY dbo.Orders.OrderDate DESC, dbo.Orders.RequestType DESC
 GO
 
 
-
-USE [netsafe_com]
-GO
-
 /****** Object:  View [dbo].[WebLog_View]    Script Date: 21/11/2014 17:49:33 ******/
 SET ANSI_NULLS ON
 GO
@@ -171,7 +167,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[UOL-CP]    Script Date: 21/11/2014 17:48:54 ******/
@@ -331,7 +327,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[UAI - NETBR03]    Script Date: 21/11/2014 17:48:06 ******/
@@ -367,7 +363,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Total_Geral_Ativos]    Script Date: 21/11/2014 17:47:24 ******/
@@ -544,7 +540,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Totais_Tipo-BR]    Script Date: 21/11/2014 17:46:15 ******/
@@ -739,7 +735,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Totais_Diversos]    Script Date: 21/11/2014 17:45:33 ******/
@@ -928,7 +924,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[telmex-netla03]    Script Date: 21/11/2014 17:44:44 ******/
@@ -967,7 +963,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Telefonica_Neg-BR]    Script Date: 21/11/2014 17:43:03 ******/
@@ -1147,7 +1143,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Telefonica_Neg-BR]    Script Date: 21/11/2014 17:43:03 ******/
@@ -1325,7 +1321,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[speedynanny todos]    Script Date: 21/11/2014 17:42:18 ******/
@@ -1364,7 +1360,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Somente_Ordens]    Script Date: 21/11/2014 17:41:39 ******/
@@ -1512,7 +1508,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Orders_BR]    Script Date: 21/11/2014 17:40:54 ******/
@@ -1708,7 +1704,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[NETCP99-xpress]    Script Date: 21/11/2014 17:39:59 ******/
@@ -1735,7 +1731,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Net_Fortaleza]    Script Date: 21/11/2014 17:38:42 ******/
@@ -1772,7 +1768,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Levantamento_Geral_Analitico]    Script Date: 21/11/2014 17:36:52 ******/
@@ -1967,7 +1963,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Inter_Net]    Script Date: 21/11/2014 17:27:33 ******/
@@ -2005,7 +2001,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Globo - netbr05 - todos new]    Script Date: 21/11/2014 17:22:24 ******/
@@ -2044,7 +2040,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Geral-CP]    Script Date: 21/11/2014 17:21:26 ******/
@@ -2223,7 +2219,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Geral-BR]    Script Date: 21/11/2014 17:20:41 ******/
@@ -2425,7 +2421,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Geral_Novo_BR]    Script Date: 21/11/2014 17:19:59 ******/
@@ -2591,7 +2587,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Geral_Grupo_iG_Oi]    Script Date: 21/11/2014 17:18:50 ******/
@@ -2765,7 +2761,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Filtrar_Parceiro]    Script Date: 21/11/2014 17:17:24 ******/
@@ -2899,7 +2895,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Contar_Ordens]    Script Date: 21/11/2014 17:16:13 ******/
@@ -3051,7 +3047,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Contabil_Parceiro]    Script Date: 21/11/2014 17:10:54 ******/
@@ -3196,7 +3192,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Brasoftware - netbr41]    Script Date: 21/11/2014 17:10:12 ******/
@@ -3232,7 +3228,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Ativos-NETBR24-TFN]    Script Date: 21/11/2014 17:09:31 ******/
@@ -3270,7 +3266,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Ativos_IG_NETBR23]    Script Date: 21/11/2014 17:08:28 ******/
@@ -3308,7 +3304,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Ativos_IG_NETBR22]    Script Date: 21/11/2014 17:07:42 ******/
@@ -3347,7 +3343,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[Ativos_IG_NETBR17]    Script Date: 21/11/2014 17:07:01 ******/
@@ -3385,7 +3381,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[_Total_New_Trial_Cancel]    Script Date: 21/11/2014 17:06:16 ******/
@@ -3576,7 +3572,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[_Total_New_Ativo]    Script Date: 21/11/2014 17:05:45 ******/
@@ -3767,7 +3763,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[_Total_Churn]    Script Date: 21/11/2014 16:57:16 ******/
@@ -4152,7 +4148,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  View [dbo].[_Total_Cancel]    Script Date: 21/11/2014 16:56:04 ******/
@@ -4467,7 +4463,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  Index [logid]    Script Date: 21/11/2014 16:23:28 ******/
@@ -4492,7 +4488,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  Index [ativacoes]    Script Date: 21/11/2014 16:20:52 ******/
@@ -4504,7 +4500,7 @@ CREATE NONCLUSTERED INDEX [ativacoes] ON [dbo].[weblog]
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  Index [confirmation]    Script Date: 21/11/2014 16:21:46 ******/
@@ -4518,7 +4514,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  Index [CustomerID]    Script Date: 13/11/2014 21:03:17 ******/
@@ -4528,7 +4524,7 @@ CREATE NONCLUSTERED INDEX [CustomerID] ON [dbo].[Customers]
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 GO
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  Index [McafeeOrderID]    Script Date: 21/11/2014 16:18:15 ******/
@@ -4539,7 +4535,7 @@ CREATE NONCLUSTERED INDEX [McafeeOrderID] ON [dbo].[Orders]
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  Index [NetSafeOrderID]    Script Date: 21/11/2014 16:18:45 ******/
@@ -4550,7 +4546,7 @@ CREATE NONCLUSTERED INDEX [NetSafeOrderID] ON [dbo].[Orders]
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  Index [OrderDate]    Script Date: 21/11/2014 16:19:07 ******/
@@ -4934,7 +4930,7 @@ ENABLE TRIGGER [rds_deny_backups_trigger] ON DATABASE
 
 --CREATE STORE PROCEDURE
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_addtosourcecontrol]    Script Date: 11/21/2014 14:40:10 ******/
@@ -5036,7 +5032,7 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_addtosourcecontrol_u]    Script Date: 11/21/2014 14:40:29 ******/
@@ -5069,7 +5065,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_adduserobject]    Script Date: 11/21/2014 14:41:58 ******/
@@ -5098,7 +5094,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_adduserobject_vcs]    Script Date: 11/21/2014 14:42:14 ******/
@@ -5136,7 +5132,7 @@ declare @iReturn int
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkinobject]    Script Date: 11/21/2014 14:42:41 ******/
@@ -5332,7 +5328,7 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkinobject_u]    Script Date: 11/21/2014 14:42:56 ******/
@@ -5375,7 +5371,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkoutobject]    Script Date: 11/21/2014 14:43:13 ******/
@@ -5486,7 +5482,7 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkoutobject_u]    Script Date: 11/21/2014 14:43:25 ******/
@@ -5524,7 +5520,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_displayoaerror]    Script Date: 11/21/2014 14:43:39 ******/
@@ -5557,7 +5553,7 @@ declare @vchDescription varchar(255)
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_displayoaerror_u]    Script Date: 11/21/2014 14:47:35 ******/
@@ -5583,7 +5579,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_droppropertiesbyid]    Script Date: 11/21/2014 14:47:51 ******/
@@ -5615,7 +5611,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_dropuserobjectbyid]    Script Date: 11/21/2014 14:48:23 ******/
@@ -5637,7 +5633,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_generateansiname]    Script Date: 11/21/2014 14:48:38 ******/
@@ -5685,7 +5681,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_addtosourcecontrol]    Script Date: 11/21/2014 14:40:10 ******/
@@ -5787,7 +5783,7 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_addtosourcecontrol_u]    Script Date: 11/21/2014 14:40:29 ******/
@@ -5820,7 +5816,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_adduserobject]    Script Date: 11/21/2014 14:41:58 ******/
@@ -5849,7 +5845,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_adduserobject_vcs]    Script Date: 11/21/2014 14:42:14 ******/
@@ -5887,7 +5883,7 @@ declare @iReturn int
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkinobject]    Script Date: 11/21/2014 14:42:41 ******/
@@ -6083,7 +6079,7 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkinobject_u]    Script Date: 11/21/2014 14:42:56 ******/
@@ -6126,7 +6122,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkoutobject]    Script Date: 11/21/2014 14:43:13 ******/
@@ -6237,7 +6233,7 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_checkoutobject_u]    Script Date: 11/21/2014 14:43:25 ******/
@@ -6275,7 +6271,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_displayoaerror]    Script Date: 11/21/2014 14:43:39 ******/
@@ -6308,7 +6304,7 @@ declare @vchDescription varchar(255)
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_displayoaerror_u]    Script Date: 11/21/2014 14:47:35 ******/
@@ -6334,7 +6330,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_droppropertiesbyid]    Script Date: 11/21/2014 14:47:51 ******/
@@ -6366,7 +6362,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_dropuserobjectbyid]    Script Date: 11/21/2014 14:48:23 ******/
@@ -6388,7 +6384,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_generateansiname]    Script Date: 11/21/2014 14:48:38 ******/
@@ -6436,7 +6432,7 @@ GO
 
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getobjwithprop_u]    Script Date: 11/21/2014 14:52:42 ******/
@@ -6472,7 +6468,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getpropertiesbyid]    Script Date: 11/21/2014 14:56:00 ******/
@@ -6506,7 +6502,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getpropertiesbyid_u]    Script Date: 11/21/2014 14:56:15 ******/
@@ -6540,7 +6536,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getpropertiesbyid_vcs]    Script Date: 11/21/2014 14:56:41 ******/
@@ -6569,7 +6565,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_getpropertiesbyid_vcs_u]    Script Date: 11/21/2014 14:57:03 ******/
@@ -6598,7 +6594,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_isundersourcecontrol]    Script Date: 11/21/2014 14:57:20 ******/
@@ -6705,7 +6701,7 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_isundersourcecontrol_u]    Script Date: 11/21/2014 15:01:47 ******/
@@ -6734,7 +6730,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_removefromsourcecontrol]    Script Date: 11/21/2014 15:02:17 ******/
@@ -6765,7 +6761,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_setpropertybyid]    Script Date: 11/21/2014 15:02:33 ******/
@@ -6813,7 +6809,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_setpropertybyid_u]    Script Date: 11/21/2014 15:02:54 ******/
@@ -6878,7 +6874,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_validateloginparams]    Script Date: 11/21/2014 15:03:19 ******/
@@ -6931,7 +6927,6 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_validateloginparams_u]    Script Date: 11/21/2014 15:03:37 ******/
@@ -6958,7 +6953,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_vcsenabled]    Script Date: 11/21/2014 15:03:53 ******/
@@ -6989,7 +6984,7 @@ select @VSSGUID = 'SQLVersionControl.VCS_SQL'
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_verstamp006]    Script Date: 11/21/2014 15:04:09 ******/
@@ -7011,7 +7006,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_verstamp007]    Script Date: 11/21/2014 15:04:25 ******/
@@ -7033,7 +7028,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_whocheckedout]    Script Date: 11/21/2014 15:04:38 ******/
@@ -7111,7 +7106,7 @@ E_OAError:
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[dt_whocheckedout_u]    Script Date: 11/21/2014 15:04:55 ******/
@@ -7143,7 +7138,7 @@ as
 GO
 
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  StoredProcedure [dbo].[sp_FechamentoXL]    Script Date: 11/21/2014 15:05:08 ******/
@@ -7328,7 +7323,7 @@ GO
 
 -- CREATE FUNCTION
 
-USE [netsafe_com]
+
 GO
 
 /****** Object:  UserDefinedFunction [dbo].[iter_charlist_to_table]    Script Date: 11/21/2014 15:05:56 ******/
