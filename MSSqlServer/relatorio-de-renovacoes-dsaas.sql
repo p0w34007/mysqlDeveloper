@@ -25,4 +25,7 @@ SELECT		[PSID]
 		,[CityName]
 		,[StateProvinceCD]
 		[PostalCD]
-FROM		[partner_security].[dbo].[PartnerSecurity];
+FROM		[partner_security].[dbo].[PartnerSecurity]
+
+WHERE           DataOrdem > '2012-01-01 00:00:00'
+ORDER BY        DataOrdem ASC;
