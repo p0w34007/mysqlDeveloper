@@ -168,67 +168,68 @@ update netsafe_com.dbo.NETCP10          set migracao=1;
 
 
 ====================================================================
-alter table mobile_com.dbo.BusinessMarket drop migracao;
+alter table mobile_com.dbo.BusinessMarket drop column migracao;
 go
-alter table mobile_com.dbo.Customers 	  drop migracao;
+alter table mobile_com.dbo.Customers 	  drop column migracao;
 go
-alter table mobile_com.dbo.InteractiveLog drop migracao ;
+alter table mobile_com.dbo.InteractiveLog drop column migracao;
 go
-alter table mobile_com.dbo.Language 	  drop migracao ;
+alter table mobile_com.dbo.Language 	  drop column migracao;
 go
-alter table mobile_com.dbo.OrderItem 	  drop migracao;
+alter table mobile_com.dbo.OrderItem 	  drop column migracao;
 go
-alter table mobile_com.dbo.Orders         drop migracao;
+alter table mobile_com.dbo.Orders         drop column migracao;
 go
-alter table mobile_com.dbo.Products       drop migracao;
+alter table mobile_com.dbo.Products       drop column migracao;
 go
-alter table mobile_com.dbo.SMSAtivacao    drop migracao ;
+alter table mobile_com.dbo.SMSAtivacao    drop column migracao;
 go
-alter table mobile_com.dbo.SMSCustomers   drop migracao ;
+alter table mobile_com.dbo.SMSCustomers   drop column migracao;
 go
-alter table mobile_com.dbo.SMSRouting     drop migracao ;
+alter table mobile_com.dbo.SMSRouting     drop column migracao;
 go
-alter table mobile_com.dbo.SubPartners    drop migracao ;
+alter table mobile_com.dbo.SubPartners    drop column migracao;
 go
-alter table mobile_com.dbo.WebLog         drop migracao ;
-go
-
-alter table mozy_com.dbo.BusinessMarket	drop migracao ;
-go
-alter table mozy_com.dbo.Customers 	drop migracao ;
-go
-alter table mozy_com.dbo.Language 	drop migracao ;
-go
-alter table mozy_com.dbo.OrderItem 	drop migracao ;
-go
-alter table mozy_com.dbo.Orders         drop migracao ;
-go
-alter table mozy_com.dbo.Products       drop migracao ;
-go
-alter table mozy_com.dbo.SMSCustomers   drop migracao ;
-go
-alter table mozy_com.dbo.SubPartners    drop migracao ;
-go
-alter table mozy_com.dbo.WebLog         drop migracao ;
+alter table mobile_com.dbo.WebLog         drop column migracao;
 go
 
-alter table netsafe_com.dbo.BusinessMarket	drop migracao ;
+alter table mozy_com.dbo.BusinessMarket	drop column migracao;
 go
-alter table netsafe_com.dbo.Customers 		drop migracao ;
+alter table mozy_com.dbo.Customers 	drop column migracao;
 go
-alter table netsafe_com.dbo.Language 		drop migracao ;
+alter table mozy_com.dbo.Language 	drop column migracao;
 go
-alter table netsafe_com.dbo.OrderItem 		drop migracao ;
+alter table mozy_com.dbo.OrderItem 	drop column migracao;
 go
-alter table netsafe_com.dbo.Orders         	drop migracao ;
+alter table mozy_com.dbo.Orders         drop column migracao;
 go
-alter table netsafe_com.dbo.Products       	drop migracao ;
+alter table mozy_com.dbo.Products       drop column migracao;
 go
-alter table netsafe_com.dbo.SubPartners    	drop migracao ;
+alter table mozy_com.dbo.SMSCustomers   drop column migracao;
 go
-alter table netsafe_com.dbo.WebLog         	drop migracao ;
+alter table mozy_com.dbo.SubPartners    drop column migracao;
 go
-alter table netsafe_com.dbo.NETBR03		drop migracao ;
+alter table mozy_com.dbo.WebLog         drop column migracao;
 go
-alter table netsafe_com.dbo.NETCP10             drop migracao ;
+
+alter table netsafe_com.dbo.BusinessMarket	drop column migracao;
+go
+alter table netsafe_com.dbo.Customers 		drop column migracao;
+go
+alter table netsafe_com.dbo.Language 		drop column migracao;
+go
+alter table netsafe_com.dbo.OrderItem 		drop column migracao;
+go
+alter table netsafe_com.dbo.Orders         	drop column migracao;
+go
+alter table netsafe_com.dbo.Products       	drop column migracao;
+go
+alter table netsafe_com.dbo.SubPartners    	drop column migracao;
+go
+alter table netsafe_com.dbo.WebLog         	drop column migracao;
+go
+alter table netsafe_com.dbo.NETBR03		drop column migracao;
+go
+alter table netsafe_com.dbo.NETCP10             drop column migracao;
+
 
