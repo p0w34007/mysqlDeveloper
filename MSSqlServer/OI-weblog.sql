@@ -34,5 +34,136 @@ and			(
 group by substring(convert(varchar(19),datapost,120),1,16)
 order by 2 desc;
 
+/*  adicionando colunas nas tabelas de migracao */
+alter table mobile_com.dbo.BusinessMarket add migracao boolean;
+go;
+alter table mobile_com.dbo.Customers 	  add migracao boolean;
+go;
+alter table mobile_com.dbo.InteractiveLog add migracao boolean;
+go;
+alter table mobile_com.dbo.Language 	  add migracao boolean;
+go;
+alter table mobile_com.dbo.OrderItem 	  add migracao boolean;
+go;
+alter table mobile_com.dbo.Orders         add migracao boolean;
+go;
+alter table mobile_com.dbo.Products       add migracao boolean;
+go;
+alter table mobile_com.dbo.SMSAtivacao    add migracao boolean;
+go;
+alter table mobile_com.dbo.SMSCustomers   add migracao boolean;
+go;
+alter table mobile_com.dbo.SMSRouting     add migracao boolean;
+go;
+alter table mobile_com.dbo.SubPartners    add migracao boolean;
+go;
+alter table mobile_com.dbo.WebLog         add migracao boolean;
+go;
+
+update mobile_com.dbo.BusinessMarket 	set migracao=true;
+go;
+update mobile_com.dbo.Customers 	set migracao=true;
+go;
+update mobile_com.dbo.InteractiveLog 	set migracao=true;
+go;
+update mobile_com.dbo.Language 		set migracao=true;
+go;
+update mobile_com.dbo.OrderItem 	set migracao=true;
+go;
+update mobile_com.dbo.Orders  		set migracao=true;
+go;
+update mobile_com.dbo.Products      	set migracao=true;
+go;
+update mobile_com.dbo.SMSAtivacao   	set migracao=true;
+go;
+update mobile_com.dbo.SMSCustomers   	set migracao=true;
+go;
+update mobile_com.dbo.SMSRouting    	set migracao=true;
+go;
+update mobile_com.dbo.SubPartners   	set migracao=true;
+go;
+update mobile_com.dbo.WebLog       	set migracao=true;
+go;
+
+alter table mozy_com.dbo.BusinessMarket	add migracao boolean;
+go;
+alter table mozy_com.dbo.Customers 	add migracao boolean;
+go;
+alter table mozy_com.dbo.Language 	add migracao boolean;
+go;
+alter table mozy_com.dbo.OrderItem 	add migracao boolean;
+go;
+alter table mozy_com.dbo.Orders         add migracao boolean;
+go;
+alter table mozy_com.dbo.Products       add migracao boolean;
+go;
+alter table mozy_com.dbo.SMSCustomers   add migracao boolean;
+go;
+alter table mozy_com.dbo.SubPartners    add migracao boolean;
+go;
+alter table mozy_com.dbo.WebLog         add migracao boolean;
+go;
+
+update mozy_com.dbo.BusinessMarket	set migracao=true;
+go;
+update mozy_com.dbo.Customers		set migracao=true;
+go;
+update mozy_com.dbo.Language 		set migracao=true;
+go;
+update mozy_com.dbo.OrderItem 		set migracao=true;
+go;
+update mozy_com.dbo.Orders  		set migracao=true;
+go;
+update mozy_com.dbo.Products      	set migracao=true;
+go;
+update mozy_com.dbo.SMSCustomers   	set migracao=true;
+go;
+update mozy_com.dbo.SubPartners   	set migracao=true;
+go;
+update mozy_com.dbo.WebLog       	set migracao=true;
+go;
+
+alter table netsafe_com.dbo.BusinessMarket	add migracao boolean;
+go;
+alter table netsafe_com.dbo.Customers 		add migracao boolean;
+go;
+alter table netsafe_com.dbo.Language 		add migracao boolean;
+go;
+alter table netsafe_com.dbo.OrderItem 		add migracao boolean;
+go;
+alter table netsafe_com.dbo.Orders         	add migracao boolean;
+go;
+alter table netsafe_com.dbo.Products       	add migracao boolean;
+go;
+alter table netsafe_com.dbo.SMSCustomers   	add migracao boolean;
+go;
+alter table netsafe_com.dbo.SubPartners    	add migracao boolean;
+go;
+alter table netsafe_com.dbo.WebLog         	add migracao boolean;
+go;
+
+update netsafe_com.dbo.BusinessMarket	set migracao=true;
+go;
+update netsafe_com.dbo.Customers	set migracao=true;
+go;
+update netsafe_com.dbo.Language 	set migracao=true;
+go;
+update netsafe_com.dbo.OrderItem 	set migracao=true;
+go;
+update netsafe_com.dbo.Orders  		set migracao=true;
+go;
+update netsafe_com.dbo.Products      	set migracao=true;
+go;
+update netsafe_com.dbo.SMSCustomers   	set migracao=true;
+go;
+update netsafe_com.dbo.SubPartners   	set migracao=true;
+go;
+update netsafe_com.dbo.WebLog       	set migracao=true;
+go;
+
+
+
+
+
 
 
