@@ -173,6 +173,7 @@ update netsafe_com.dbo.NETCP10          set migracao=1;
 
 
 ====================================================================
+/* desfazer a coluna migracao em todas as tabelas */
 alter table mobile_com.dbo.BusinessMarket drop column migracao;
 go
 alter table mobile_com.dbo.Customers 	  drop column migracao;
@@ -239,9 +240,7 @@ alter table netsafe_com.dbo.NETCP10             drop column migracao;
 
 
 =============================================================================================
-
-
-
+/* insert com merge de todas as bases de dados para a ativacoes_com */
 
 INSERT INTO [ativacoes_com].[dbo].[Products]
 ([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
@@ -421,9 +420,6 @@ INSERT INTO [ativacoes_com].[dbo].[Language]
 ([LanguageID] ,[Name],[Available])
 VALUES
 ('ja','Japanese','N');
-
-
-
 GO
 
 INSERT INTO [ativacoes_com].[dbo].[BusinessMarket]
@@ -448,7 +444,72 @@ INSERT INTO [ativacoes_com].[dbo].[BusinessMarket]
 ([BusinessMarketID],[Name],[TemplateID],[Currency])
 VALUES
 ('LTAM','Latim America','espanhol_01.txt','real');
+go
 
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('458-6641-mvs','Anti-virus','Anti-virus','Anti-virus','N/A','Y','Monthly Subscription w/ no trial (ISP)','BRAZ','0','0','0','0.0000','A','frudge','2012-05-17 16:55:33.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('458-6660-mwe','Web Essential','Web Essential','Web Essential','N/A','N','Monthly Subscription w/ no trial (ISP)','BRAZ','0','0','0','0.0000','A','frudge','2012-05-17 16:55:11.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-42744-vsfmob','Oi Antivírus Plus','Oi Antivírus Plus','Oi Antivírus Plus','N/A','Y','Monthly Subscription w/ no trial (ISP)','BRAZ','0','0','0','0.0000','A','frudge','2012-10-16 16:35:15.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-42737-mpcsp','Oi Antivírus Premium','Oi Antivírus Premium','Oi Antivírus Premium','N/A','Y','Monthly Subscription w/ no trial (ISP)','BRAZ','0','0','0','0.0000','A','frudge','2012-10-16 16:35:47.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-42743-mob','Oi Backup ','Oi Backup','Oi Backup','N/A','Y','Monthly Subscription w/ no trial (ISP)','BRAZ','0','0','0','0.0000','A','frudge','2012-10-16 16:36:42.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-61081-1usermds','OI 1-USER MCAFEE MULTI DEVICE SECURITY','OI 1-USER MCAFEE MULTI DEVICE SECURITY','OI 1-USER MCAFEE MULTI DEVICE SECURITY','N/A','Y','Paid with auto-renewal','BRAZ','0','0','0','0.0000','A','netsafe@netsafe.com.br','2014-12-30 00:32:22.380');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-60468-mds','OI MCAFEE MULTI DEVICE SECURITY','OI MCAFEE MULTI DEVICE SECURITY','OI MCAFEE MULTI DEVICE SECURITY','N/A','Y','Paid with auto-renewal','BRAZ','0','0','0','0.0000','A','netsafe@netsafe.com.br','2014-12-30 00:32:22.383');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-66226-srvc_1umma','OI 1-USER MCAFEE MULTI ACCESS','OI 1-USER MCAFEE MULTI ACCESS','OI 1-USER MCAFEE MULTI ACCESS','N/A','Y','Paid with auto-renewal','BRAZ','0','0','0','0.0000','A','netsafe@netsafe.com.br','2014-12-30 00:32:22.393');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-66193-3dumma','OI 3-DEVICE MCAFEE MULTI ACCESS','OI 3-DEVICE MCAFEE MULTI ACCESS','OI 3-DEVICE MCAFEE MULTI ACCESS','N/A','Y','Paid with auto-renewal','BRAZ','0','0','0','0.0000','A','netsafe@netsafe.com.br','2014-12-30 00:32:22.410');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('458-6665-mpcs','McAfee PC Security 1 user (VSO/MPFP/MPS)','McAfee PC Security 1 user (VSO/MPFP/MPS)','McAfee PC Security 1 user  (VSO/MPFP/MPS)','N/A','Y','Monthly Subscription w/ no trial (ISP)','BRAZ','0','0','0','0.0000','A','frudge','2012-05-17 16:56:09.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('458-35729-3usermpcs','McAfee PC Security 3 user (VSO/MPFP/MPS)','McAfee PC Security 3 user (VSO/MPFP/MPS)','McAfee PC Security 3 user  (VSO/MPFP/MPS)','N/A','Y','Monthly Subscription w/ no trial (ISP)','BRAZ','0','0','0','0.0000','A','frudge','2012-05-17 16:56:58.000');
 
 
 
