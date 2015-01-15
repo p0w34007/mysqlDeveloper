@@ -352,6 +352,71 @@ VALUES
 ('695-38887-mwssp','Oi - WaveSecure 15 days trial with auto-renewal','Oi - WaveSecure 15 days trial with auto-renewal','Oi - WaveSecure 15 days trial with auto-renewal','15','Y','15 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 11:01:59.000');
 
 
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('en-us','English-United States','Y');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('pt-br','Portuguese-Brazil','Y');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('de','German-Standard','N');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('en-au','English-Australia','N');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('en-ca','English-Canada','N');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('en-gb','English-United Kingdom','N');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('es','Spanish-Standard','Y');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('es-mx','Spanish-Mexico','Y');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('fr','French-Standard','N');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('it','Italian-Standard','N');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Language]
+([LanguageID] ,[Name],[Available])
+VALUES
+('ja','Japanese','N');
+
 
 
 
