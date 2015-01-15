@@ -419,4 +419,32 @@ VALUES
 
 
 
+GO
+
+INSERT INTO [ativacoes_com].[dbo].[BusinessMarket]
+([BusinessMarketID],[Name],[TemplateID],[Currency])
+VALUES
+('BRAZ','Brazil','portugues_01.txt','real');
+GO
+
+INSERT INTO [ativacoes_com].[dbo].[BusinessMarket]
+([BusinessMarketID],[Name],[TemplateID],[Currency])
+VALUES
+('DSAS','DSAAS','dsaas_01.txt','real');
+GO
+
+INSERT INTO [ativacoes_com].[dbo].[BusinessMarket]
+([BusinessMarketID],[Name],[TemplateID],[Currency])
+VALUES
+('CORP','Corporativo','portugues_02.txt','real');
+GO
+
+INSERT INTO [ativacoes_com].[dbo].[BusinessMarket]
+([BusinessMarketID],[Name],[TemplateID],[Currency])
+VALUES
+('LTAM','Latim America','espanhol_01.txt','real');
+
+
+
+
 
