@@ -233,3 +233,125 @@ go
 alter table netsafe_com.dbo.NETCP10             drop column migracao;
 
 
+=============================================================================================
+
+
+
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('682-38882-mwssp','IG - WaveSecure 1 Month paid with auto-renewal','IG - WaveSecure 1 Month paid with auto-renewal','IG - WaveSecure 1 Month paid with auto-renewal','N/A','Y','Monthly Subscription w/ no trial','BRAZ','0','0','0','0.0000','A','frudge','2011-09-23 13:00:33.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38969-mmssp','McAfee Mobile Security Smartphone','McAfee Mobile Security Smartphone','McAfee Mobile Security Smartphone','30','Y','30 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2013-02-07 10:42:53.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38972-mmssp','McAfee Mobile Security Smartphone','McAfee Mobile Security Smartphone','McAfee Mobile Security Smartphone','N/A','Y','Monthly Subscription w/ no trial (ISP)','BRAZ','0','0','0','0.0000','A','frudge','2013-02-07 10:43:41.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-46935-mmssp','McAfee Mobile Security Smartphone - 7 days','McAfee Mobile Security Smartphone - 7 days','McAfee Mobile Security Smartphone - 7 days','30','N','30 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2013-02-07 10:44:39.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-42447-mmssp','McAfee Mobile Security Smartphone - 14 days','McAfee Mobile Security Smartphone - 14 days','McAfee Mobile Security Smartphone - 14 days','30','N','30 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2013-02-07 10:45:22.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-49622-mmsspl','McAfee Mobile Security Smartphone Light','McAfee Mobile Security Smartphone Light','McAfee Mobile Security Smartphone Light','N/A','Y','Monthly Subscription w/ no trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 11:01:59.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-49619-mmsspl','McAfee Mobile Security Smartphone Light','McAfee Mobile Security Smartphone Light','McAfee Mobile Security Smartphone Light','30','Y','30 Day Free Trial','BRAZ','0','0','0','0.0000','A','NULL','2011-07-25 11:01:59.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-61081-1usermds','OI 1-USER MCAFEE MULTI DEVICE SECURITY','OI 1-USER MCAFEE MULTI DEVICE SECURITY','OI 1-USER MCAFEE MULTI DEVICE SECURITY','N/S','Y','Paid with auto-renewal','BRAZ','0','0','0','0.0000','A','netsafe@netsafe.com.br','2015-01-08 19:16:56.967');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-60468-mds','OI MCAFEE MULTI DEVICE SECURITY','OI MCAFEE MULTI DEVICE SECURITY','OI MCAFEE MULTI DEVICE SECURITY','N/S','Y','Paid with auto-renewal','BRAZ','0','0','0','0.0000','A','netsafe@netsafe.com.br','2015-01-08 19:16:57.027');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-66226-srvc_1umma','OI 1-USER MCAFEE MULTI ACCESS','OI 1-USER MCAFEE MULTI ACCESS','OI 1-USER MCAFEE MULTI ACCESS','N/S','Y','Paid with auto-renewal','BRAZ','0','0','0','0.0000','A','netsafe@netsafe.com.br','2015-01-08 19:16:57.037');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('907-66193-3dumma','OI 3-DEVICE MCAFEE MULTI ACCESS','OI 3-DEVICE MCAFEE MULTI ACCESS','OI 3-DEVICE MCAFEE MULTI ACCESS','N/S','Y','Paid with auto-renewal','BRAZ','0','0','0','0.0000','A','netsafe@netsafe.com.br','2015-01-08 19:16:57.040');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('737-37862-mcafee secure phone','mcafee secure phone','mcafee secure phone','mcafee secure phone','N/A','Y','Monthly Subscription w/ no trial','BRAZ','0','0','0','0.0000','A','frudge','2011-03-15 10:54:57.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38879-mwssp','Oi - WaveSecure 30 days trial with auto-renewal','Oi - WaveSecure 30 days trial with auto-renewal','Oi - WaveSecure 30 days trial with auto-renewal','30','Y','30 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 10:56:55.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38980-mwssp','Oi - WaveSecure 1 Month paid with auto-renewal','Oi - WaveSecure 1 Month paid with auto-renewal','Oi - WaveSecure 1 Month paid with auto-renewal','N/A','Y','Monthly Subscription w/ no trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 10:57:40.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38883-mwssp','Oi - WaveSecure 7 days trial with auto-renewal','Oi - WaveSecure 7 days trial with auto-renewal','Oi - WaveSecure 7 days trial with auto-renewal','7','Y','7 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 10:58:41.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38884-mwssp','Oi - WaveSecure 7 days trial without auto-renewal','Oi - WaveSecure 7 days trial without auto-renewal','Oi - WaveSecure 7 days trial without auto-renewal','30','N','30 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 10:59:38.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38885-mwssp','Oi - WaveSecure 30 days trial without auto-renewal','Oi - WaveSecure 30 days trial without auto-renewal','Oi - WaveSecure 30 days trial without auto-renewal','30','N','30 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 11:00:27.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38886-mwssp','Oi - WaveSecure 15 days trial without auto-renewal','Oi - WaveSecure 15 days trial without auto-renewal','Oi - WaveSecure 15 days trial without auto-renewal','15','N','15 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 11:01:25.000');
+go
+
+INSERT INTO [ativacoes_com].[dbo].[Products]
+([SKU],[Product],[ProductName],[ProductSet],[TrialPeriod],[AutoRenew],[Offer],[BusinessMarketID],[maquinas],[MaquinasMin],[MaquinasMax],[Price],[Status],[LastUser],[LastChange])     
+VALUES
+('695-38887-mwssp','Oi - WaveSecure 15 days trial with auto-renewal','Oi - WaveSecure 15 days trial with auto-renewal','Oi - WaveSecure 15 days trial with auto-renewal','15','Y','15 Day Free Trial','BRAZ','0','0','0','0.0000','A','frudge','2011-07-25 11:01:59.000');
+
+
+
+
+
