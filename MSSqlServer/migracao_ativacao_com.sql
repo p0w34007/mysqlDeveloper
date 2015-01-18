@@ -531,6 +531,117 @@ go
 
 
 
+/* migracao tabela  orderitem  */
+
+drop table #tmp1
+go
+sp_rename orderitem, orderitem_BK;
+
+go
+CREATE TABLE [dbo].[orderitem](
+	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[OrderID] [nvarchar](150) NOT NULL,
+	[CustomerID] [nvarchar](50) NULL,
+	[PartnerOrderID] [nvarchar](60) NULL,
+	[SubPartnerID] [nvarchar](10) NULL,
+	[ProductID] [nvarchar](100) NULL,
+	[OrderDate] [datetime] NULL,
+	[DeskTopMailBoxes] [nvarchar](50) NULL,
+	[SubscriptionLength] [nvarchar](10) NULL,
+	[ServiceLevel] [nvarchar](10) NULL,
+	[PaymentType] [nvarchar](5) NULL,
+	[LanguageCode] [nvarchar](2) NULL,
+	[ProductName] [nvarchar](100) NULL,
+	[ProductQTY] [decimal](18, 0) NULL,
+	[McAfeeExpDate] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+set rowcount 0
+go
+--verificar se existe a tabela temporaria
+--if isobject('#tmp1')
+IF OBJECT_ID (N'#tmp1', N'U') IS NOT NULL
+  drop table #tmp1
+go
+--cria tabela temporaria com todos os dados
+select distinct
+	[OrderID],
+	[CustomerID],
+	[PartnerOrderID],
+	[SubPartnerID],
+	[ProductID],
+	[OrderDate],
+	[DeskTopMailBoxes],
+	[SubscriptionLength],
+	[ServiceLevel]
+	[PaymentType],
+	[LanguageCode],
+	[ProductName],
+	[ProductQTY],
+	[McAfeeExpDate]
+ into #tmp1
+from orderitem_Bk
+go
+
+--configuro a qtde de linhas para transferencia
+set rowcount 10000
+go
+while (select count(1) from #tmp1) > 0
+begin
+
+    --inserir na tabela nova
+    insert into orderitem (
+	[OrderID],
+	[CustomerID],
+	[PartnerOrderID],
+	[SubPartnerID],
+	[ProductID],
+	[OrderDate],
+	[DeskTopMailBoxes],
+	[SubscriptionLength],
+	[ServiceLevel]
+	[PaymentType],
+	[LanguageCode],
+	[ProductName],
+	[ProductQTY],
+	[McAfeeExpDate]
+)
+    select
+	[OrderID],
+	[CustomerID],
+	[PartnerOrderID],
+	[SubPartnerID],
+	[ProductID],
+	[OrderDate],
+	[DeskTopMailBoxes],
+	[SubscriptionLength],
+	[ServiceLevel]
+	[PaymentType],
+	[LanguageCode],
+	[ProductName],
+	[ProductQTY],
+	[McAfeeExpDate]
+    from #tmp1
+
+    print 'inserido'
+
+    --excluir da tabela tmp1
+    delete from #tmp1
+end
+set rowcount 0
+go
+
+select count(1)
+from orderitem_BK
+go
+select count(1)
+from orderitem
+
+
 
 
 
