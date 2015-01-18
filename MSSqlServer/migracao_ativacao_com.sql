@@ -372,6 +372,163 @@ go
 
 
 
+/* migracao tabela orders */
+drop table #tmp1
+go
+sp_rename orders, orders_BK;
+
+go
+CREATE TABLE [dbo].[orders](
+	[LogId] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[NetSafeOrderID] [nvarchar](150) NOT NULL,
+	[PartnerOrderID] [nvarchar](100) NULL,
+	[McafeeOrderID] [nvarchar](50) NULL,
+	[McafeeExpiration] [datetime] NULL,
+	[SubPartnerID] [nvarchar](20) NULL,
+	[CustomerID] [nvarchar](50) NULL,
+	[OrderDate] [datetime] NULL,
+	[OrderEnd] [datetime] NULL,
+	[BusinessMarket] [nvarchar](10) NULL,
+	[RequestType] [nvarchar](10) NULL,
+	[NSReference] [nvarchar](100) NULL,
+	[Status] [nvarchar](20) NULL,
+	[StatusMcafee] [nvarchar](500) NULL,
+	[DownloadURL] [nvarchar](255) NULL,
+	[WebUser] [nvarchar](50) NULL,
+	[IPOrigem] [nvarchar](20) NULL,
+	[ASpOrderAccessKey] [nvarchar](60) NULL,
+	[ParmValueInst] [nvarchar](255) NULL,
+	[MOBKLicencekey] [nvarchar](255) NULL,
+	[SKU] [nvarchar](100) NULL,
+	[NUMBER] [nvarchar](50) NULL,
+	[COUNTRYCODE] [char](10) NULL,
+	[OLDNUMBER] [nvarchar](100) NULL,
+	[ACCT] [nvarchar](60) NULL,
+	[PRODUCTKEY] [nvarchar](150) NULL
+) ON [PRIMARY]
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+set rowcount 0
+go
+--verificar se existe a tabela temporaria
+--if isobject('#tmp1')
+IF OBJECT_ID (N'#tmp1', N'U') IS NOT NULL
+  drop table #tmp1
+go
+--cria tabela temporaria com todos os dados
+select distinct
+	[NetSafeOrderID],
+	[PartnerOrderID],
+	[McafeeOrderID],
+	[McafeeExpiration],
+	[SubPartnerID],
+	[CustomerID],
+	[OrderDate],
+	[OrderEnd],
+	[BusinessMarket],
+	[RequestType],
+	[NSReference],
+	[Status],
+	[StatusMcafee],
+	[DownloadURL],
+	[WebUser],
+	[IPOrigem],
+	[ASpOrderAccessKey],
+	[ParmValueInst],
+	[MOBKLicencekey],
+	[SKU],
+	[NUMBER],
+	[COUNTRYCODE],
+	[OLDNUMBER],
+	[ACCT],
+	[PRODUCTKEY]
+ into #tmp1
+from orders_Bk
+go
+
+--configuro a qtde de linhas para transferencia
+set rowcount 10000
+go
+while (select count(1) from #tmp1) > 0
+begin
+
+    --inserir na tabela nova
+    insert into orders (
+	[NetSafeOrderID],
+	[PartnerOrderID],
+	[McafeeOrderID],
+	[McafeeExpiration],
+	[SubPartnerID],
+	[CustomerID],
+	[OrderDate],
+	[OrderEnd],
+	[BusinessMarket],
+	[RequestType],
+	[NSReference],
+	[Status],
+	[StatusMcafee],
+	[DownloadURL],
+	[WebUser],
+	[IPOrigem],
+	[ASpOrderAccessKey],
+	[ParmValueInst],
+	[MOBKLicencekey],
+	[SKU],
+	[NUMBER],
+	[COUNTRYCODE],
+	[OLDNUMBER],
+	[ACCT],
+	[PRODUCTKEY]
+)
+    select
+	[NetSafeOrderID],
+	[PartnerOrderID],
+	[McafeeOrderID],
+	[McafeeExpiration],
+	[SubPartnerID],
+	[CustomerID],
+	[OrderDate],
+	[OrderEnd],
+	[BusinessMarket],
+	[RequestType],
+	[NSReference],
+	[Status],
+	[StatusMcafee],
+	[DownloadURL],
+	[WebUser],
+	[IPOrigem],
+	[ASpOrderAccessKey],
+	[ParmValueInst],
+	[MOBKLicencekey],
+	[SKU],
+	[NUMBER],
+	[COUNTRYCODE],
+	[OLDNUMBER],
+	[ACCT],
+	[PRODUCTKEY]
+    from #tmp1
+
+    print 'inserido'
+
+    --excluir da tabela tmp1
+    delete from #tmp1
+end
+set rowcount 0
+go
+
+select count(1)
+from orders_BK
+go
+select count(1)
+from orders
+go
+
+
+
+
 
 
 
