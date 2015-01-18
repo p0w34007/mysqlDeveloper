@@ -187,6 +187,81 @@ go
 
 
 
+/* migracao tabela businessmarket */
+drop table #tmp1
+go
+sp_rename businessmarket, businessmarket_BK;
+
+go
+CREATE TABLE [dbo].[businessmarket](
+    [CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[BusinessMarketID] [nvarchar](10) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[TemplateID] [nvarchar](255) NOT NULL,
+	[Currency] [nvarchar](10) NULL
+) ON [PRIMARY]
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+set rowcount 0
+go
+--verificar se existe a tabela temporaria
+--if isobject('#tmp1')
+IF OBJECT_ID (N'#tmp1', N'U') IS NOT NULL
+  drop table #tmp1
+go
+--cria tabela temporaria com todos os dados
+select distinct
+	[BusinessMarketID],
+	[Name],
+	[TemplateID],
+	[Currency]
+ into #tmp1
+from businessmarket_Bk
+go
+
+--configuro a qtde de linhas para transferencia
+set rowcount 10000
+go
+while (select count(1) from #tmp1) > 0
+begin
+
+    --inserir na tabela nova
+    insert into businessmarket (
+	[BusinessMarketID],
+	[Name],
+	[TemplateID],
+	[Currency]
+)
+    select
+	[BusinessMarketID],
+	[Name],
+	[TemplateID],
+	[Currency]
+    from #tmp1
+
+    print 'inserido'
+
+    --excluir da tabela tmp1
+    delete from #tmp1
+end
+set rowcount 0
+go
+
+select count(1)
+from businessmarket_BK
+go
+select count(1)
+from businessmarket
+go
+
+
+
+
+
+
 
 
 
