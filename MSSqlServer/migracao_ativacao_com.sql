@@ -577,7 +577,7 @@ select distinct
 	[OrderDate],
 	[DeskTopMailBoxes],
 	[SubscriptionLength],
-	[ServiceLevel]
+	[ServiceLevel],
 	[PaymentType],
 	[LanguageCode],
 	[ProductName],
@@ -603,7 +603,7 @@ begin
 	[OrderDate],
 	[DeskTopMailBoxes],
 	[SubscriptionLength],
-	[ServiceLevel]
+	[ServiceLevel],
 	[PaymentType],
 	[LanguageCode],
 	[ProductName],
@@ -619,7 +619,7 @@ begin
 	[OrderDate],
 	[DeskTopMailBoxes],
 	[SubscriptionLength],
-	[ServiceLevel]
+	[ServiceLevel],
 	[PaymentType],
 	[LanguageCode],
 	[ProductName],
