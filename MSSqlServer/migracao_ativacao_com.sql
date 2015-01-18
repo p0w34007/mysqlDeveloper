@@ -119,3 +119,81 @@ go
 
 
 
+/* migracao tabela language */
+drop table #tmp1
+go
+sp_rename Language, Language_BK;
+
+go
+CREATE TABLE [dbo].[Language](
+    [CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[LanguageID] [nvarchar](10) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Available] [nvarchar](1) NULL
+) ON [PRIMARY]
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+set rowcount 0
+go
+--verificar se existe a tabela temporaria
+--if isobject('#tmp1')
+IF OBJECT_ID (N'#tmp1', N'U') IS NOT NULL
+  drop table #tmp1
+go
+--cria tabela temporaria com todos os dados
+select distinct
+	[LanguageID],
+	[Name],
+	[Available]
+ into #tmp1
+from Language_Bk
+go
+
+--configuro a qtde de linhas para transferencia
+set rowcount 10000
+go
+while (select count(1) from #tmp1) > 0
+begin
+
+    --inserir na tabela nova
+    insert into Language (
+	[LanguageID],
+	[Name],
+	[Available]
+)
+    select
+	[LanguageID],
+	[Name],
+	[Available]
+    from #tmp1
+
+    print 'inserido'
+
+    --excluir da tabela tmp1
+    delete from #tmp1
+end
+set rowcount 0
+go
+
+select count(1)
+from Language_BK
+go
+select count(1)
+from Language
+go
+
+
+
+
+
+
+
+
+
+
+
+
+
