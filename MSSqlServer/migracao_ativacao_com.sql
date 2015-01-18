@@ -647,4 +647,177 @@ from orderitem
 
 
 
+/* migracao tabela customers */
+
+
+
+drop table #tmp1
+go
+sp_rename customers, customers_BK;
+
+go
+CREATE TABLE [dbo].[customers](
+	[CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[CustomerID] [nvarchar](60) NOT NULL,
+	[SubPartnerID] [nvarchar](10) NOT NULL,
+	[PartnerCustomerID] [nvarchar](60) NOT NULL,
+	[McAfeeASaPContactID] [nvarchar](50) NULL,
+	[CustomerType] [nvarchar](2) NULL,
+	[CPF] [nvarchar](20) NULL,
+	[CNPJ] [nvarchar](50) NULL,
+	[Email] [nvarchar](200) NULL,
+	[EmailContact] [nvarchar](200) NULL,
+	[Salutation] [nvarchar](4) NULL,
+	[FirstName] [nvarchar](150) NOT NULL,
+	[LastName] [nvarchar](150) NULL,
+	[Password] [nvarchar](150) NOT NULL,
+	[Phone] [nvarchar](20) NULL,
+	[Fax] [nvarchar](20) NULL,
+	[CompanyName] [nvarchar](161) NULL,
+	[AddressLine1] [nvarchar](161) NULL,
+	[AddressLine2] [nvarchar](161) NULL,
+	[SuiteFloor] [nvarchar](161) NULL,
+	[CityName] [nvarchar](161) NULL,
+	[StateProvinceCD] [nvarchar](3) NULL,
+	[PostalCD] [nvarchar](20) NULL,
+	[CountryCD] [nvarchar](3) NULL,
+	[Pref_Language] [nvarchar](10) NULL,
+	[StartDate] [datetime] NULL,
+	[LastUpdate] [datetime] NULL,
+	[Status] [nvarchar](10) NULL,
+	[McafeeCustomerStatus] [nvarchar](255) NULL
+) ON [PRIMARY]
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+set rowcount 0
+go
+--verificar se existe a tabela temporaria
+--if isobject('#tmp1')
+IF OBJECT_ID (N'#tmp1', N'U') IS NOT NULL
+  drop table #tmp1
+go
+--cria tabela temporaria com todos os dados
+select distinct
+	[CustomerID],
+	[SubPartnerID],
+	[PartnerCustomerID],
+	[McAfeeASaPContactID],
+	[CustomerType],
+	[CPF],
+	[CNPJ],
+	[Email],
+	[EmailContact],
+	[Salutation],
+	[FirstName],
+	[LastName],
+	[Password],
+	[Phone],
+	[Fax],
+	[CompanyName],
+	[AddressLine1],
+	[AddressLine2],
+	[SuiteFloor],
+	[CityName],
+	[StateProvinceCD],
+	[PostalCD],
+	[CountryCD],
+	[Pref_Language],
+	[StartDate],
+	[LastUpdate],
+	[Status],
+	[McafeeCustomerStatus]
+ into #tmp1
+from customers_Bk
+go
+
+--configuro a qtde de linhas para transferencia
+set rowcount 10000
+go
+while (select count(1) from #tmp1) > 0
+begin
+
+    --inserir na tabela nova
+    insert into customers (
+	[CustomerID],
+	[SubPartnerID],
+	[PartnerCustomerID],
+	[McAfeeASaPContactID],
+	[CustomerType],
+	[CPF],
+	[CNPJ],
+	[Email],
+	[EmailContact],
+	[Salutation],
+	[FirstName],
+	[LastName],
+	[Password],
+	[Phone],
+	[Fax],
+	[CompanyName],
+	[AddressLine1],
+	[AddressLine2],
+	[SuiteFloor],
+	[CityName],
+	[StateProvinceCD],
+	[PostalCD],
+	[CountryCD],
+	[Pref_Language],
+	[StartDate],
+	[LastUpdate],
+	[Status],
+	[McafeeCustomerStatus]
+)
+    select
+	[CustomerID],
+	[SubPartnerID],
+	[PartnerCustomerID],
+	[McAfeeASaPContactID],
+	[CustomerType],
+	[CPF],
+	[CNPJ],
+	[Email],
+	[EmailContact],
+	[Salutation],
+	[FirstName],
+	[LastName],
+	[Password],
+	[Phone],
+	[Fax],
+	[CompanyName],
+	[AddressLine1],
+	[AddressLine2],
+	[SuiteFloor],
+	[CityName],
+	[StateProvinceCD],
+	[PostalCD],
+	[CountryCD],
+	[Pref_Language],
+	[StartDate],
+	[LastUpdate],
+	[Status],
+	[McafeeCustomerStatus]
+    from #tmp1
+
+    print 'inserido'
+
+    --excluir da tabela tmp1
+    delete from #tmp1
+end
+set rowcount 0
+go
+
+select count(1)
+from customers_BK
+go
+select count(1)
+from customers
+
+
+
+
+
+
 
