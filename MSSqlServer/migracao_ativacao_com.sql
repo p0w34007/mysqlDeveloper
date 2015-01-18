@@ -260,6 +260,114 @@ go
 
 
 
+/* migracao tabela subpartners */
+drop table #tmp1
+go
+sp_rename subpartners, subpartners_BK;
+
+go
+CREATE TABLE [dbo].[subpartners](
+    [CID] [decimal](18, 0) IDENTITY(1,1) NOT NULL,
+	[SubPartnerID] [nvarchar](10) NOT NULL,
+	[McafeeID] [nvarchar](30) NOT NULL,
+	[BusinessMarketID] [nvarchar](10) NOT NULL,
+	[Name] [nvarchar](30) NOT NULL,
+	[Email] [nvarchar](50) NOT NULL,
+	[URL] [nvarchar](50) NOT NULL,
+	[Letter] [char](1) NULL,
+	[PostXML] [char](1) NULL,
+	[URLPostXML] [nvarchar](255) NULL,
+	[WebServiceUser] [nvarchar](50) NULL,
+	[ProductionDB] [char](1) NULL,
+	[StagingDB] [char](1) NULL,
+	[SID] [decimal](18, 0) NULL DEFAULT ((0))
+) ON [PRIMARY]
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+set rowcount 0
+go
+--verificar se existe a tabela temporaria
+--if isobject('#tmp1')
+IF OBJECT_ID (N'#tmp1', N'U') IS NOT NULL
+  drop table #tmp1
+go
+--cria tabela temporaria com todos os dados
+select distinct
+	[SubPartnerID],
+	[McafeeID],
+	[BusinessMarketID],
+	[Name],
+	[Email],
+	[URL],
+	[Letter],
+	[PostXML],
+	[URLPostXML],
+	[WebServiceUser],
+	[ProductionDB],
+	[StagingDB],
+	[SID]
+ into #tmp1
+from subpartners_Bk
+go
+
+--configuro a qtde de linhas para transferencia
+set rowcount 10000
+go
+while (select count(1) from #tmp1) > 0
+begin
+
+    --inserir na tabela nova
+    insert into subpartners (
+	[SubPartnerID],
+	[McafeeID],
+	[BusinessMarketID],
+	[Name],
+	[Email],
+	[URL],
+	[Letter],
+	[PostXML],
+	[URLPostXML],
+	[WebServiceUser],
+	[ProductionDB],
+	[StagingDB],
+	[SID]
+)
+    select
+	[SubPartnerID],
+	[McafeeID],
+	[BusinessMarketID],
+	[Name],
+	[Email],
+	[URL],
+	[Letter],
+	[PostXML],
+	[URLPostXML],
+	[WebServiceUser],
+	[ProductionDB],
+	[StagingDB],
+	[SID]
+    from #tmp1
+
+    print 'inserido'
+
+    --excluir da tabela tmp1
+    delete from #tmp1
+end
+set rowcount 0
+go
+
+select count(1)
+from subpartners_BK
+go
+select count(1)
+from subpartners
+go
+
+
+
 
 
 
