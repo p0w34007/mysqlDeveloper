@@ -817,7 +817,3 @@ from customers
 
 
 
-
-
-
-
