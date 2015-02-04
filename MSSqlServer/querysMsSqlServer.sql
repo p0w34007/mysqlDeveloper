@@ -1,12 +1,5 @@
 =====================================================================================
 
-
-
-
-
-
-
-
 select top 1000 * from ativacoes_com.dbo.weblog order by 1 desc;
 select top 1000 * from ativacoes_com.dbo.weblog where confirmationnumber like '%NETBR99%' order by 1 desc;
 select top 10 * from ativacoes_com.dbo.orders  order by 1 desc;
