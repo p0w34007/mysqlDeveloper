@@ -1,3 +1,111 @@
+=====================================================================================
+
+
+
+
+
+
+
+
+select top 1000 * from ativacoes_com.dbo.weblog order by 1 desc;
+select top 1000 * from ativacoes_com.dbo.weblog where confirmationnumber like '%NETBR99%' order by 1 desc;
+select top 10 * from ativacoes_com.dbo.orders  order by 1 desc;
+select top 10 * from ativacoes_com.dbo.orders where number <> 'null' order by 1 desc;
+select top 10 * from ativacoes_com.dbo.orders where subpartnerid='NETBR40' and number <> 'null' order by 1 desc;
+select top 5 * from ativacoes_com.dbo.subpartners where subpartnerid='NETBR99';
+select top 5 * from ativacoes_com.dbo.customers order by startdate desc;
+select top 10 * from Partner_Security.dbo.weblog order by 2 desc;
+select top 100 Email from Partner_Security.dbo.weblog where Status='SUCCESS' and emailinstalacao='0' order by DataPost asc;
+select top 1 Email from Partner_Security.dbo.weblog where Status='SUCCESS' order by 2 asc;
+select top 25 * from Partner_Security.dbo.Customers order by 1 desc;
+select top 25 * from Partner_Security.dbo.PartnerSecurity order by 1 desc;
+SELECT TOP 1000 * FROM [Partner_Security].[dbo].[PS-Lista] ORDER BY DataOrdem DESC;
+
+/* update Partner_Security.dbo.weblog set emailinstalacao=0; */
+update Partner_Security.dbo.weblog set emailinstalacao='0' where Email='variedadesbrasilml@yahoo.com.br';
+update Partner_Security.dbo.weblog set emailinstalacao='1';
+update Partner_Security.dbo.partnersecurity_produtos set Pro_Ativo = 'N' WHERE PD='21';
+SELECT * FROM Partner_Security.dbo.partnersecurity_produtos WHERE Pro_Ativo = 'S' ORDER BY PD asc;
+update Partner_Security.dbo.PartnerSecurity  set TipoOrdem='NEW',StatusOrdem='Released' where EmailAddress in ('java25@java.com','java26@java.com','java27@java.com');
+select		top 10
+			wl.Email,
+			wl.XMLOut,
+			pd.Pro_InstalacaoSubject,
+			pd.Pro_InstalacaoPath,
+			ps.FirstName,
+			ps.LastName,
+			ps.NomeProduto,
+			ps.CompanyName,
+			ps.EmailAddress_adm,
+			ps.OrderID,
+			ps.DataOrdem,
+			ps.Maquinas,
+			ps.PSID
+from		Partner_Security.dbo.weblog						as wl
+inner join  Partner_Security.dbo.PartnerSecurity			as ps on wl.OrderID    = ps.OrderID
+inner join  Partner_Security.dbo.PartnerSecurity_Periodos	as pd on ps.SKU        = pd.SKU
+where		wl.Status			=	'SUCCESS' 
+and			wl.emailinstalacao	=	'0' 
+and			ps.TipoOrdem = 'NEW'
+and         ps.StatusOrdem = 'Released'
+order by	wl.DataPost desc;
+
+
+
+
+
+use Partner_Security;
+select               top 1                                           wl.Email,               wl.XMLOut,                                       pd.Pro_InstalacaoSubject,                                       pd.Pro_InstalacaoPath,  ps.FirstName,                                    ps.LastName,                                    ps.NomeProduto,                         ps.CompanyName,                                  ps.EmailAddress_adm,                                    ps.OrderID,                     ps.DataOrdem,                                    ps.Maquinas,                                    ct.Password,                            ps.PSID          from            Weblog                                          as wl           inner join  PartnerSecurity             as ps on wl.CustomerID=ps.CustomerID and wl.OrderID=ps.OrderID           inner join  PartnerSecurity_Periodos    as pd on ps.SKU=pd.SKU  inner join  Customers                                    as ct on ps.CustomerID=ct.CustomerID            where           wl.Status       ='SUCCESS'               and                     wl.emailinstalacao      =       '0'             order by        wl.DataPost desc;
+
+select top 25 * from Partner_Security.dbo.PartnerSecurity order by 1 desc;
+select top 10 * from Partner_Security.dbo.orders order by 7 desc;
+SELECT * FROM Partner_Security.dbo.partnersecurity_periodos WHERE Pro_PID = '4001';
+SELECT * FROM Partner_Security.dbo.partnersecurity_periodos
+select top 5 * from mozy_com.dbo.weblog order by 1 desc;
+select top 5 * from mozy_com.dbo.orders order by 1 desc;
+select top 5 * from mozy_com.dbo.subpartners where subpartnerid='NETBR99';
+select top 5 * from mozy_com.dbo.subpartners where subpartnerid='NETBR03';
+
+SELECT * FROM Partner_Security.dbo.PartnerSecurity_partners Order By sPartnerIDCons;
+
+select top 5*       from ativacoes_com.dbo.weblog where request='CANCEL' order by 1 desc;
+select top 5 * from ativacoes_com.dbo.weblog where confirmationnumber = 'NETBR03_150123152026_OIS332331770429';
+select top 5 * from ativacoes_com.dbo.weblog where email = 'ois332331770429@oi.com.br';
+select top 5 * from ativacoes_com.dbo.weblogDW where email like '%ois332331770429@oi.com.br%';
+select top 5 * from ativacoes_com.dbo.weblogDW where email like '%flavionascif%'
+select * from ativacoes_com.dbo.orderitem where OrderID='NETBR55_150118210444_OIS332331770403';
+select top 5 * from ativacoes_com.dbo.orderitem;
+SELECT * FROM mozy_com.dbo.subpartners WHERE SubPartnerID like '%NET%';
+SELECT webserviceuser FROM mozy_com.dbo.subpartners group by webserviceuser;
+select top 5 * from ativacoes_com.dbo.subpartners where email like '%uai%';
+select top 1 * from ativacoes_com.dbo.weblogDW where XMLin like '%458-35729-3usermpcs%';
+select top 5 * from ativacoes_com.dbo.customers where subpartnerid='NETBR03';
+
+SELECT	top 5 * 
+FROM		ativacoes_com.dbo.OrderItem 
+WHERE				(
+--			CUSTOMERID   = 'fRCUSTOMERID' 
+/* AND */			SubPartnerID = 'NETBR03');
+--AND			productID    = 'fRSKU';
+
+select productid from ativacoes_com.dbo.orderitem where subpartnerid='NETBR03' group by productid;
+
+458-35729-3usermpcs
+458-6641-mvs
+458-6643-mvs
+458-6645-mpfp
+458-6647-mpfp
+458-6650-mps
+458-6660-mwe
+458-6665-mpcs
+
+
+	[CID] [decimal](18,0) IDENTITY(1,1) NOT NULL,
+	
+===============================================================================================================	
+
+
+
 SELECT SQL_CALC_FOUND_ROWS o.*,
             pu as partnumber_unico,
             puc as partnumber_unico_compacto,
