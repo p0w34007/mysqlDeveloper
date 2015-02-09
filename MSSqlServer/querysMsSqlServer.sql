@@ -7,12 +7,69 @@ select top 10 * from ativacoes_com.dbo.orders where number <> 'null' order by 1 
 select top 10 * from ativacoes_com.dbo.orders where subpartnerid='NETBR40' and number <> 'null' order by 1 desc;
 select top 5 * from ativacoes_com.dbo.subpartners where subpartnerid='NETBR99';
 select top 5 * from ativacoes_com.dbo.customers order by startdate desc;
+
 select top 10 * from Partner_Security.dbo.weblog order by 2 desc;
+select top 10 * from Partner_Security.dbo.orders  order by 7 desc;
+select top 10 * from Partner_Security.dbo.orders  where CustomerID='0DO50204145817';
 select top 100 Email from Partner_Security.dbo.weblog where Status='SUCCESS' and emailinstalacao='0' order by DataPost asc;
 select top 1 Email from Partner_Security.dbo.weblog where Status='SUCCESS' order by 2 asc;
 select top 25 * from Partner_Security.dbo.Customers order by 1 desc;
-select top 25 * from Partner_Security.dbo.PartnerSecurity order by 1 desc;
+select top 100 * from Partner_Security.dbo.PartnerSecurity order by 1 desc;
 SELECT TOP 1000 * FROM [Partner_Security].[dbo].[PS-Lista] ORDER BY DataOrdem DESC;
+SELECT * FROM [Partner_Security].[dbo].PartnerSecurity WHERE (OrderID = '0DO50204145817') ORDER BY DataOrdem ASC;
+select NetSafeOrderID,McafeeOrderID from Partner_Security.dbo.orders  where CustomerID='0DO50204145817';
+SELECT * FROM Partner_Security.dbo.orders WHERE McafeeOrderID = 'NETBR99_150204145900_0DO50204145817' and CustomerID = '0DO50204145817';
+NCS1489183254
+SELECT 
+			ps.PSID,
+			ps.PSUser,
+			ps.PSNsID,
+			ps.CustomerID,
+			ps.OrderID,
+			ps.NetSafeID,
+			ps.DDD,
+			ps.Phone,
+			ps.Produto,
+			ps.NomeProduto,
+			ps.SKU,
+			ps.Periodo,
+			ps.Maquinas,
+			ps.IP,
+			ps.DataOrdem,
+			ps.DataVenda,
+			ps.TipoOrdem,
+			ps.StatusOrdem,
+			ps.Valor,
+			ps.EmailAddress,
+			ps.EmailAddress_adm,
+			ps.Password,
+			ps.FirstName,
+			ps.LastName,
+			ps.CPF,
+			ps.CNPJ,
+			ps.CompanyName,
+			ps.AddressLine1,
+			ps.AddressLine2,
+			ps.Suite,
+			ps.CityName,
+			ps.StateProvinceCD,
+			ps.PostalCD,
+			ps.Status,
+			ps.StatusRetorno,
+			ps.DescRetorno,
+			ps.NSRef,
+			ps.MCAFFEURL,
+			ps.Vendedor,
+			od.NetSafeOrderID
+
+FROM		[Partner_Security].[dbo].PartnerSecurity as ps
+inner join	[Partner_Security].[dbo].orders			 as od on ps.CustomerID=od.CustomerID
+
+WHERE		ps.OrderID = '0DO50204145817'
+ORDER BY	ps.DataOrdem ASC;
+
+
+
 
 /* update Partner_Security.dbo.weblog set emailinstalacao=0; */
 update Partner_Security.dbo.weblog set emailinstalacao='0' where Email='variedadesbrasilml@yahoo.com.br';
