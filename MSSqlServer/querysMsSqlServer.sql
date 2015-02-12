@@ -20,6 +20,38 @@ SELECT * FROM [Partner_Security].[dbo].PartnerSecurity WHERE (OrderID = '0DO5020
 select NetSafeOrderID,McafeeOrderID from Partner_Security.dbo.orders  where CustomerID='0DO50204145817';
 SELECT * FROM Partner_Security.dbo.orders WHERE McafeeOrderID = 'NETBR99_150204145900_0DO50204145817' and CustomerID = '0DO50204145817';
 NCS1489183254
+
+
+SELECT DISTINCT ord.LogId      ,ord.NetSafeOrderID      ,ord.PartnerOrderID      ,ord.McafeeOrderID
+     ,ord.McafeeExpiration      ,ord.SubPartnerID      ,ord.CustomerID      ,ord.OrderDate
+     ,ord.OrderEnd      ,ord.BusinessMarket      ,ord.RequestType      ,ord.NSReference
+     ,ord.Status      ,ord.StatusMcafee      ,ord.DownloadURL      ,ord.WebUser
+   ,oitem.ProductID
+    ,cust.CustomerID as RCUSTOMERID
+     ,cust.SubPartnerID as RPARTNERID
+     ,cust.PartnerCustomerID      ,cust.McAfeeASaPContactID
+     ,cust.CustomerType      ,cust.CPF
+     ,cust.CNPJ      ,cust.Email as REMAIL
+     ,cust.EmailContact      ,cust.Salutation
+     ,cust.FirstName as RFIRSTNAME
+     ,cust.LastName as RLASTNAME
+     ,cust.Password as RPASSWORD
+     ,cust.Phone      ,cust.Fax
+     ,cust.CompanyName      ,cust.AddressLine1
+     ,cust.AddressLine2      ,cust.SuiteFloor
+     ,cust.CityName      ,cust.StateProvinceCD
+     ,cust.PostalCD      ,cust.CountryCD
+     ,cust.Pref_Language as RLANGUAGE
+     ,cust.StartDate      ,cust.LastUpdate
+     ,cust.Status AS status2
+     ,cust.McafeeCustomerStatus
+ from  ativacoes_com.dbo.orders ord inner join ativacoes_com.dbo.orderitem oitem on ord.CustomerID = oitem.CustomerID and ord.PartnerOrderID = oitem.PartnerOrderID
+inner join ativacoes_com.dbo.customers cust on ord.CustomerID = cust.CustomerID 
+where --106 ABAIXO ESTÃO NO RELATORIO DO SITE COMO ATIVOS, MAS NÃO ESTÃO NA LISTA DOS 2558 (QUE NO CONTROLE SÃO 2510)
+ord.PartnerOrderID  in ('B8WSTQMGOV','L4IAJBDZHF','BNJHK1Q9EE','HOY01HJVGP','HUVMQA3UZM','J7NYNTOK1O','AXRQNOLCJ2','H9ATXVT5UD','0MSTGJV51W','EKOD10FTTR','FSHDPENDHS','QGCAF3L47L','SFAK7G3PNM','3D0KS27JP0','ICAFWODT9J','OZDY4USLTZ','TCMAYRMJO3','M6LKU9XKT3','VSVDDUFE2U','LIFXT7LMWZ','WHEFWNTGGM','DTKHU8YB16','RRQMOO0RXP','I4OYMJLTZL','WD1GFU16XD','GFMI2KILMK','V3FIO8J1KC','HHLJNADCSV','M1CD0OACON','OYTGHQSFY7','IDGAPXN0LK','FJLVY3AIPY','Q30DNSASDT','11Q9BXPDUS','H4RAPWWQHU','KIBQTAEYO4','SR3WUO3OJA','DI4TJYZCFQ','L2DAVAN03T','UUT4IQXFUX','XW8J5YQBSQ','SS3XSWBKSD','08OIVCXMPG','4CXO6TNZZS','F8SA1UHS7G','Y9NQ6IYTTV','PJUBVJI4JU','AFE4YQHYHC','KKRZ232CNZ','YTHWZDTFJA','OZ7PVJFKIW','JUDVLRBJ3K','IBVR3PX0DL','HD1RCQRUZ3','O1PZ10AEJQ','UQYMXA1MH1','34529','26195','18097','16543','11876','11195','4692','2088','2058','1694','1691','1549','1491','1450','1434','1437','1380','1341','1334','1266','1236','1144','966','845','743','712','716','717','720','724','699','682','661','663','671','577','549','511','413','427','330','322','294','254','215','209','191','176','153','108')
+ORDER BY PartnerOrderID,McafeeCustomerStatus,McafeeOrderID, OrderDate ASC
+
+
 SELECT 
 			ps.PSID,
 			ps.PSUser,
