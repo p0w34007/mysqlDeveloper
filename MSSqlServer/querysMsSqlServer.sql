@@ -31,7 +31,17 @@ select * from Pdti_com.dbo.PdtiCustomers where NsRef!='Erro' and NsRef!='';
 select Status from Pdti_com.dbo.PdtiCustomers where NsRef!='Erro' and NsRef!='' group by Status;
 select count(1) from Pdti_com.dbo.PdtiCustomers;
 
-nome=ESQUEMA IMOVEIS ADM COMERCIO LTDA
+
+
+select			'http://yahoo.com/ws.asp?nome='+nome+'&ddd='+ddd+'&terminal='+terminal+'&id=null&mac='+MacAddress+'&serial='+Serial as endpoint, 
+				nome,ddd,terminal,MacAddress,Serial,Status
+from			Pdti_com.dbo.PdtiCustomers 
+where			(NsRef='Erro' or NsRef='') 
+and				email not in (select email from Pdti_com.dbo.PdtiCustomers where Status='A')
+group by		nome,ddd,terminal,MacAddress,Serial,Status 
+order by		2 desc;
+
+nome=ADM COMERCIO LTDA
 ddd=11	
 terminal=30611133
 id=null
