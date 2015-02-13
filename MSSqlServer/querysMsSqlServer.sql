@@ -1,25 +1,50 @@
 =====================================================================================
 
+/* ativacaoes _com */
 select top 1000 * from ativacoes_com.dbo.weblog order by 1 desc;
 select top 1000 * from ativacoes_com.dbo.weblog where confirmationnumber like '%NETBR99%' order by 1 desc;
 select top 10 * from ativacoes_com.dbo.orders  order by 1 desc;
-select top 10 * from ativacoes_com.dbo.orders where number <> 'null' order by 1 desc;
+select * from ativacoes_com.dbo.orders where PartnerOrderID = '08OIVCXMPG';
 select top 10 * from ativacoes_com.dbo.orders where subpartnerid='NETBR40' and number <> 'null' order by 1 desc;
 select top 5 * from ativacoes_com.dbo.subpartners where subpartnerid='NETBR99';
 select top 5 * from ativacoes_com.dbo.customers order by startdate desc;
 
-select top 10 * from Partner_Security.dbo.weblog order by 2 desc;
+/* Partner_Security */
+select top 1000 * from Partner_Security.dbo.weblog order by 2 desc;
 select top 10 * from Partner_Security.dbo.orders  order by 7 desc;
+select top 100 * from Partner_Security.dbo.PartnerSecurity order by 1 desc;
 select top 10 * from Partner_Security.dbo.orders  where CustomerID='0DO50204145817';
 select top 100 Email from Partner_Security.dbo.weblog where Status='SUCCESS' and emailinstalacao='0' order by DataPost asc;
 select top 1 Email from Partner_Security.dbo.weblog where Status='SUCCESS' order by 2 asc;
 select top 25 * from Partner_Security.dbo.Customers order by 1 desc;
-select top 100 * from Partner_Security.dbo.PartnerSecurity order by 1 desc;
 SELECT TOP 1000 * FROM [Partner_Security].[dbo].[PS-Lista] ORDER BY DataOrdem DESC;
 SELECT * FROM [Partner_Security].[dbo].PartnerSecurity WHERE (OrderID = '0DO50204145817') ORDER BY DataOrdem ASC;
 select NetSafeOrderID,McafeeOrderID from Partner_Security.dbo.orders  where CustomerID='0DO50204145817';
 SELECT * FROM Partner_Security.dbo.orders WHERE McafeeOrderID = 'NETBR99_150204145900_0DO50204145817' and CustomerID = '0DO50204145817';
-NCS1489183254
+
+
+/* pdti_com */
+select * from Pdti_com.dbo.PdtiCustomers order by 2 desc;
+select * from Pdti_com.dbo.PdtiCustomers where customerid='9CAD97FE5F1B' order by 2 desc;
+select * from Pdti_com.dbo.PdtiCustomers where NsRef='Erro'  order by 2 desc;
+select * from Pdti_com.dbo.PdtiCustomers where NsRef!='Erro' and NsRef!='';
+select Status from Pdti_com.dbo.PdtiCustomers where NsRef!='Erro' and NsRef!='' group by Status;
+select count(1) from Pdti_com.dbo.PdtiCustomers;
+
+nome=ESQUEMA IMOVEIS ADM COMERCIO LTDA
+ddd=11	
+terminal=30611133
+id=null
+mac=74:E6:E2:CE:DD:02
+serial=B4LPL22
+
+update		Pdti_com.dbo.PdtiCustomers
+set			Status='A',
+			Chave='5FCBEB97-711B-6BCA-310E-B7F2033D4F17',
+			NsRef='NCS1493087092',
+			Mensagem='[1000] Transaction  is successful'
+where		CID='11880';
+
 
 
 SELECT DISTINCT ord.LogId      ,ord.NetSafeOrderID      ,ord.PartnerOrderID      ,ord.McafeeOrderID
