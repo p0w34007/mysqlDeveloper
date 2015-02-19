@@ -1,6 +1,6 @@
 =====================================================================================
 
-/* ativacaoes _com */
+/* ativacoes _com */
 select top 1000 * from ativacoes_com.dbo.weblog order by 1 desc;
 select top 1000 * from ativacoes_com.dbo.weblog where confirmationnumber like '%NETBR99%' order by 1 desc;
 select top 10 * from ativacoes_com.dbo.orders  order by 1 desc;
@@ -31,6 +31,12 @@ select * from Pdti_com.dbo.PdtiCustomers where NsRef!='Erro' and NsRef!='';
 select Status from Pdti_com.dbo.PdtiCustomers where NsRef!='Erro' and NsRef!='' group by Status;
 select count(1) from Pdti_com.dbo.PdtiCustomers;
 
+
+/* mozy_com */
+select * from mozy_com.dbo.weblog where XMLIn like '%ois43658680242001@oi.com.br%' order by 1 desc;
+SELECT * FROM  mozy_com.dbo.Customers WHERE CustomerID = 'ois43658680242001' and SubPartnerID = 'NETBK01';
+SELECT * FROM mozy_com.dbo.Orders WHERE CUSTOMERID = 'ois43658680242001' and SubPartnerID = 'NETBK01';
+SELECT * FROM mozy_com.dbo.OrderItem WHERE CUSTOMERID = 'ois43658680242001' and SubPartnerID = 'NETBK01';
 
 
 select			'http://yahoo.com/ws.asp?nome='+nome+'&ddd='+ddd+'&terminal='+terminal+'&id=null&mac='+MacAddress+'&serial='+Serial as endpoint, 
