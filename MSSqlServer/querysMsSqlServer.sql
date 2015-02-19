@@ -39,6 +39,82 @@ SELECT * FROM mozy_com.dbo.Orders WHERE CUSTOMERID = 'ois43658680242001' and Sub
 SELECT * FROM mozy_com.dbo.OrderItem WHERE CUSTOMERID = 'ois43658680242001' and SubPartnerID = 'NETBK01';
 
 
+/* Speedy_nany_production */
+select top 10 * from Speedy_nany_production.dbo.SpeedyCustomers;
+select top 10 * from Speedy_nany_production.dbo.SpeedyFiles;
+select top 10 * from Speedy_nany_production.dbo.SpeedyOrders;
+select top 10 * from Speedy_nany_production.dbo.SpeedySER;
+select top 10 * from Speedy_nany_production.dbo.SpeedySVA;
+select top 10 * from Speedy_nany_production.dbo.SpeedyVencimentos;
+
+select count(1) from Speedy_nany_Backup.dbo.SpeedyCustomers;--567146
+select count(1) from Speedy_nany_Backup.dbo.SpeedyCustomers group by email;--427203
+
+select count(1) from Speedy_nany_production.dbo.SpeedyCustomers;--820959
+select count(1) from Speedy_nany_production.dbo.SpeedyCustomers group by email;--568963
+
+select top 10 * from Speedy_nany_Backup.dbo.SpeedyCustomers order by data desc;
+select top 1 * from Speedy_nany_Backup.dbo.SpeedyFiles order by DownloadTime desc;
+select top 1 * from Speedy_nany_Backup.dbo.SpeedySER order by data desc;
+select top 1 * from Speedy_nany_Backup.dbo.SpeedySVA order by data desc;
+select top 1 * from Speedy_nany_Backup.dbo.SpeedyVencimentos order by vencimento desc;
+
+select top 1 * from Speedy_nany_Backup.dbo.SpeedyLog;
+select top 10 * from Speedy_nany_Backup.dbo.SpeedyAFO order by 5 desc;
+select top 10 * from Speedy_nany_Backup.dbo.SpeedyCritica order by 3 desc;
+
+/* todos os clientes telefonica */
+select		nrc,
+			DDD,
+			terminal,
+			produto,
+			email,
+			tipoordem as status,
+			data
+from		Speedy_nany_production.dbo.SpeedyCustomers 
+order by	data desc;
+
+
+/* clientes que estao em aceite */
+select		'Aceite'	as origem,
+			DDD			as ddd,
+			terminal,
+			Nome,
+			produto,
+			data,
+			email			as EmailOriginal,
+			emailcliente	as EmailDigitado
+
+from		Speedy_nany_Backup.dbo.SpeedyCustomers 
+where		tipoordem='NEW' 
+and			data > '2014-08-01 00:00:00' 
+order by	data desc;
+
+
+
+/* clientes que estao em nao aceite */
+select		'NaoAceite'	as origem,
+			DDD			as ddd,
+			terminal,
+			Nome,
+			produto,
+			data,
+			email			as EmailOriginal,
+			emailcliente	as EmailDigitado
+
+from		Speedy_nany_Backup.dbo.SpeedyCustomers 
+
+where		data > '2014-08-01 00:00:00' 
+and			nrc not in (
+			select		nrc
+			from		Speedy_nany_Backup.dbo.SpeedySER
+			where		rtrim(ltrim(operacao))='I' 
+			and         rtrim(ltrim(produto))='PMI-SE4'
+			and			data > '2014-08-01 00:00:00'
+			)
+order by	data desc;
+
+
 select			'http://yahoo.com/ws.asp?nome='+nome+'&ddd='+ddd+'&terminal='+terminal+'&id=null&mac='+MacAddress+'&serial='+Serial as endpoint, 
 				nome,ddd,terminal,MacAddress,Serial,Status
 from			Pdti_com.dbo.PdtiCustomers 
