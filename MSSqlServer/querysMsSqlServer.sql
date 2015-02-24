@@ -2,12 +2,26 @@
 
 /* ativacoes _com */
 select top 1000 * from ativacoes_com.dbo.weblog order by 1 desc;
-select top 1000 * from ativacoes_com.dbo.weblog where confirmationnumber like '%NETBR99%' order by 1 desc;
+select * from ativacoes_com.dbo.subpartners;
+select  * from ativacoes_com.dbo.weblog where XMLIn like '%ois43658680242001@oi.com.br%' order by 1 desc;
 select top 10 * from ativacoes_com.dbo.orders  order by 1 desc;
-select * from ativacoes_com.dbo.orders where PartnerOrderID = '08OIVCXMPG';
-select top 10 * from ativacoes_com.dbo.orders where subpartnerid='NETBR40' and number <> 'null' order by 1 desc;
-select top 5 * from ativacoes_com.dbo.subpartners where subpartnerid='NETBR99';
+select * from ativacoes_com.dbo.orders where PartnerOrderID = 'ois43658680242001';
+select top 10 * from ativacoes_com.dbo.orders where subpartnerid='NTBR40' and number <> 'null' order by 1 desc;
+select top 5 * from ativacoes_com.dbo.subpartners where subpartnerid='NETBR24';
 select top 5 * from ativacoes_com.dbo.customers order by startdate desc;
+select top 10 email from ativacoes_com.dbo.weblog where email !='';
+select top 10 email,left(email,3) from ativacoes_com.dbo.weblog where left(email,3)='ois';
+select top 10 email,left(email,3) from ativacoes_com.dbo.weblog where left(email,1)!='#';
+select top 10 email from ativacoes_com.dbo.weblog where email contains '"ois"';
+
+SELECT * FROM  ativacoes_com.dbo.Customers WHERE CustomerID = 'ois43658680242001' and SubPartnerID = 'NETBK01';
+SELECT * FROM  ativacoes_com.dbo.Customers WHERE Email ='moreira42@netsafe.globo.com';
+SELECT * FROM ativacoes_com.dbo.Orders WHERE CUSTOMERID = '34969972' and SubPartnerID = 'NETBR40'  Order by OrderDate asc;
+SELECT * FROM ativacoes_com.dbo.Orders WHERE SubPartnerID = 'NETBR40' Order by OrderDate desc;
+SELECT top 5 * FROM ativacoes_com.dbo.OrderItem WHERE SubPartnerID = 'NETBR40' Order by CID desc;
+SELECT top 5 * FROM  ativacoes_com.dbo.Customers WHERE SubPartnerID = 'NETBR40' Order by CID desc;
+SELECT top 5 * FROM ativacoes_com.dbo.Orders  WHERE SubPartnerID = 'NETBR40'  Order by LogId desc;
+
 
 /* Partner_Security */
 select top 1000 * from Partner_Security.dbo.weblog order by 2 desc;
